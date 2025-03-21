@@ -10,8 +10,8 @@ import ResetButton from "./shop-filter/reset-button";
 const ShopArea = ({ all_products, products, otherProps }) => {
   const { selectHandleFilter, setCurrPage } = otherProps;
 
-  const [pageStart, setPageStart] = useState(0);
-  const [countOfPage, setCountOfPage] = useState(all_products.length);
+  const [pageStart] = useState(0);
+  const [countOfPage] = useState(all_products.length);
   const [viewMode, setViewMode] = useState("grid");
 
   // console.log(products);

@@ -1,6 +1,4 @@
 import React, { useRef, useEffect } from "react";
-// import ReviewForm from "../forms/review-form";
-// import ReviewItem from "./review-item";
 
 const DetailsTabNav = ({ product }) => {
   const { goldPurity, grossWeight, noDiamonds } = product || {};
@@ -164,9 +162,6 @@ const DetailsTabNav = ({ product }) => {
                       Your email address will not be published. Required fields
                       are marked *
                     </p> */}
-                    {/* form start */}
-                    {/* <ReviewForm product_id={_id} /> */}
-                    {/* form end */}
                   </div>
                 </div>
               </div>

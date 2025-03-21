@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 function Bluebar() {
-  const messages = [
-    "Share your design and get a quote",
-    "Explore our latest diamond collection",
-    "Find your perfect jewelry piece",
-    "Exclusive offers on gold jewelry",
-  ];
+  const messages = useMemo(
+    () => [
+      "Share your design and get a quote",
+      "Explore our latest diamond collection",
+      "Find your perfect jewelry piece",
+      "Exclusive offers on gold jewelry",
+    ],
+    []
+  );
 
   const [currentMessage, setCurrentMessage] = useState(messages[0]);
 
