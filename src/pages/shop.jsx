@@ -6,7 +6,6 @@ import ShopBreadcrumb from "@/components/breadcrumb/shop-breadcrumb";
 import ShopArea from "@/components/shop/shop-area";
 import ErrorMsg from "@/components/common/error-msg";
 import Footer from "@/layout/footers/footer";
-import ShopFilterOffCanvas from "@/components/common/shop-filter-offcanvas";
 import ShopLoader from "@/components/loader/shop/shop-loader";
 import { getProducts } from "@/lib/fetchData";
 
@@ -114,7 +113,6 @@ const ShopPage = ({ query }) => {
           products={product_items}
           otherProps={otherProps}
         />
-        {/* <ShopFilterOffCanvas all_products={products} otherProps={otherProps} /> */}
       </>
     );
   }

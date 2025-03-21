@@ -5,14 +5,9 @@ import Image from "next/image";
 import { CloseTwo } from "@/svg";
 import logo from "@assets/img/logo/logo.svg";
 import contact_img from "@assets/img/icon/contact.png";
-// import MobileCategory from "@/layout/headers/header-com/mobile-category";
 import MobileMenus from "./mobile-menus";
 
-const OffCanvas = ({
-  isOffCanvasOpen,
-  setIsCanvasOpen,
-  categoryType = "electronics",
-}) => {
+const OffCanvas = ({ isOffCanvasOpen, setIsCanvasOpen = "electronics" }) => {
   const [isCategoryActive, setIsCategoryActive] = useState(false);
   const [isCurrencyActive, setIsCurrencyActive] = useState(false);
   const [isLanguageActive, setIsLanguageActive] = useState(false);
@@ -52,21 +47,12 @@ const OffCanvas = ({
               </div>
             </div>
             <div className="offcanvas__category pb-40">
-              {/* <button onClick={() => setIsCategoryActive(!isCategoryActive)} className="tp-offcanvas-category-toggle">
-                <i className="fa-solid fa-bars"></i>
-                All Categories
-              </button> */}
               <div className="tp-category-mobile-menu">
                 <nav
                   className={`tp-category-menu-content ${
                     isCategoryActive ? "active" : ""
                   }`}
-                >
-                  {/* <MobileCategory
-                    categoryType={categoryType}
-                    isCategoryActive={isCategoryActive}
-                  /> */}
-                </nav>
+                ></nav>
               </div>
             </div>
             <div className="tp-main-menu-mobile fix d-lg-none mb-40">

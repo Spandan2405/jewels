@@ -5,7 +5,6 @@ import HeaderTwo from "@/layout/headers/header-2";
 import Footer from "@/layout/footers/footer";
 import Wrapper from "@/layout/wrapper";
 import ErrorMsg from "@/components/common/error-msg";
-// import { useGetProductQuery } from '@/redux/features/productApi';
 import ProductDetailsBreadcrumb from "@/components/breadcrumb/product-details-breadcrumb";
 import ProductDetailsArea from "@/components/product-details/product-details-area";
 import PrdDetailsLoader from "@/components/loader/prd-details-loader";
@@ -39,7 +38,7 @@ const ProductDetailsPage = ({ query }) => {
     <Wrapper>
       <SEO pageTitle="Product Details" />
       <HeaderTwo style_2={true} />
-      {content}
+      {/* {content} */}
       <Footer primary_style={true} />
     </Wrapper>
   );

@@ -1,20 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// internal jewels\public\assets\img\logo\logo-white.svg
 
 import logo_white from "../../../public/assets/img/logo/logo-white.svg";
 import logo_dark from "../../../public/assets/img/logo/logo.svg";
 import Bluebar from "./header-com/Bluebar";
-import { CartTwo, Menu, Search, Wishlist } from "@/svg";
+import { Menu } from "@/svg";
 import Menus from "./header-com/menus";
 import useSticky from "@/hooks/use-sticky";
-// import SearchBar from "./header-com/search-bar";
 import OffCanvas from "@/components/common/off-canvas";
-// import CartMiniSidebar from "@/components/common/cart-mini-sidebar";
-// import useCartInfo from "@/hooks/use-cart-info";
-// import { openCartMini } from "@/redux/features/cartSlice";
 
 const HeaderThree = () => {
   const [isOffCanvasOpen, setIsCanvasOpen] = useState(false);
@@ -79,17 +73,6 @@ const HeaderThree = () => {
           </div>
         </div>
       </header>
-
-      {/* search bar start */}
-      {/* <SearchBar
-        isSearchOpen={isSearchOpen}
-        setIsSearchOpen={setIsSearchOpen}
-      /> */}
-      {/* search bar end */}
-
-      {/* cart mini sidebar start */}
-      {/* <CartMiniSidebar /> */}
-      {/* cart mini sidebar end */}
 
       {/* off canvas start */}
       <OffCanvas

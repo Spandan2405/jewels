@@ -1,7 +1,6 @@
 import { urlFor } from "@/lib/sanity";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-// import PopupVideo from "../common/popup-video";
 
 const DetailsThumbWrapper = ({
   imageURLs,
@@ -9,10 +8,7 @@ const DetailsThumbWrapper = ({
   activeImg,
   imgWidth = 416,
   imgHeight = 480,
-  // videoId = false,
-  // status,
 }) => {
-  // const [isVideoOpen, setIsVideoOpen] = useState(false);
   // console.log(imageURLs);
   return (
     <>
@@ -45,34 +41,10 @@ const DetailsThumbWrapper = ({
                 width={imgWidth}
                 height={imgHeight}
               />
-              {/* <div className="tp-product-badge">
-                {status === "out-of-stock" && (
-                  <span className="product-hot">out-stock</span>
-                )}
-              </div> */}
-              {/* {videoId && (
-                <div
-                  onClick={() => setIsVideoOpen(true)}
-                  className="tp-product-details-thumb-video"
-                >
-                  <a className="tp-product-details-thumb-video-btn cursor-pointer popup-video">
-                    <i className="fas fa-play"></i>
-                  </a>
-                </div>
-              )} */}
             </div>
           </div>
         </div>
       </div>
-      {/* modal popup start */}
-      {/* {videoId && (
-        <PopupVideo
-          isVideoOpen={isVideoOpen}
-          setIsVideoOpen={setIsVideoOpen}
-          videoId={videoId}
-        />
-      )} */}
-      {/* modal popup end */}
     </>
   );
 };

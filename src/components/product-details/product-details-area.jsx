@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DetailsThumbWrapper from "./details-thumb-wrapper";
 import DetailsWrapper from "./details-wrapper";
-// import { useDispatch } from "react-redux";
-// import RelatedProducts from "./related-products";
 import FAQs from "@/components/FAQs";
 
 const ProductDetailsArea = ({ productItem }) => {
@@ -31,8 +29,6 @@ const ProductDetailsArea = ({ productItem }) => {
                 imageURLs={imageLink}
                 imgWidth={580}
                 imgHeight={670}
-                // videoId={videoId}
-                // status={status}
               />
               {/* product-details-thumb-wrapper end */}
             </div>
@@ -63,22 +59,6 @@ const ProductDetailsArea = ({ productItem }) => {
         </div>
       }
       {/* product details description */}
-
-      {/* related products start */}
-      {/* <section className="tp-related-product pt-95 pb-50">
-        <div className="container">
-          <div className="row">
-            <div className="tp-section-title-wrapper-6 text-center mb-40">
-              <span className="tp-section-title-pre-6">Next day Products</span>
-              <h3 className="tp-section-title-6">Related Products</h3>
-            </div>
-          </div>
-          <div className="row">
-            <RelatedProducts id={Product_ID} />
-          </div>
-        </div>
-      </section> */}
-      {/* related products end */}
     </section>
   );
 };

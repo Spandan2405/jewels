@@ -5,7 +5,6 @@ import HeaderTwo from "@/layout/headers/header-2";
 import Footer from "@/layout/footers/footer";
 import Wrapper from "@/layout/wrapper";
 import ErrorMsg from "@/components/common/error-msg";
-// import { useGetProductQuery } from '@/redux/features/productApi';
 import ProductDetailsBreadcrumb from "@/components/breadcrumb/product-details-breadcrumb";
 import ProductDetailsArea from "@/components/product-details/product-details-area";
 import PrdDetailsLoader from "@/components/loader/prd-details-loader";
@@ -15,7 +14,6 @@ const ProductDetailsPage = ({ query }) => {
   const [productItem, setProductItem] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-  // const { data: product } = await getRing(query.Product_ID);
 
   useEffect(() => {
     const fetchProductById = async () => {
