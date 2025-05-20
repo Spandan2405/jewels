@@ -165,14 +165,13 @@
       @extend %tp-transition;
       width: 100%;
       height: 100%;
-      border-radius: 8px;
+      border-radius: 12px;
     }
   }
 }
 
 .tp-product-item-2 {
   & .tp-product-thumb-2 {
-    background-color: #f2f3f5;
     & a {
       display: block;
     }
