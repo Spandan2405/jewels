@@ -10,17 +10,16 @@ import ResetButton from "./shop-filter/reset-button";
 const ShopArea = ({ all_products, products, otherProps }) => {
   const { selectHandleFilter, setCurrPage } = otherProps;
 
-  const [pageStart] = useState(0);
-  const [countOfPage] = useState(all_products.length);
+  const [pageStart, setPageStart] = useState(0);
+  const [countOfPage, setCountOfPage] = useState(all_products.length);
   const [viewMode, setViewMode] = useState("grid");
 
-  // console.log(products);
   return (
     <>
       <section className="tp-shop-area pb-120">
         <div className="container">
           <div className="row">
-            <div className="col-xl-3 col-lg-4">
+            <div className="col-xl-3 col-lg-4 d-xl-block d-lg-block d-none  ">
               <div className="tp-shop-sidebar mr-10">
                 {/* categories */}
                 <CategoryFilter
@@ -107,19 +106,6 @@ const ShopArea = ({ all_products, products, otherProps }) => {
                           </div>
                         </div>
                       )}
-                    </div>
-                  </div>
-                )}
-                {products.length > 0 && (
-                  <div className="tp-shop-pagination mt-20 col-md-6 col-sm-6">
-                    <div className="tp-pagination">
-                      {/* <Pagination
-                        items={products}
-                        countOfPage={all_products.length}
-                        paginatedData={paginatedData}
-                        currPage={currPage}
-                        setCurrPage={setCurrPage}
-                      /> */}
                     </div>
                   </div>
                 )}

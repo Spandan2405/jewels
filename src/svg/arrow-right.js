@@ -3,26 +3,13 @@ import React from "react";
 const ArrowRight = () => {
   return (
     <svg
-      width="15"
-      height="13"
-      viewBox="0 0 15 13"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      width="14"
+      height="14"
+      fill="#000000"
+      viewBox="0 0 256 256"
     >
-      <path
-        d="M13.9998 6.19656L1 6.19656"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M8.75674 0.975394L14 6.19613L8.75674 11.4177"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
     </svg>
   );
 };

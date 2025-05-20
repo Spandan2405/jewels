@@ -1,9 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-
-import logo_white from "../../../public/assets/img/logo/logo-white.svg";
-import logo_dark from "../../../public/assets/img/logo/logo.svg";
+import logos from "../../../public/assets/img/logo/logos.svg";
 import Bluebar from "./header-com/Bluebar";
 import { Menu } from "@/svg";
 import Menus from "./header-com/menus";
@@ -41,10 +39,18 @@ const HeaderThree = () => {
                     <Link href="/">
                       <Image
                         className="logo-light"
-                        src={logo_white}
+                        src={logos}
                         alt="logo"
+                        width={150}
+                        height={55}
                       />
-                      <Image className="logo-dark" src={logo_dark} alt="logo" />
+                      <Image
+                        className="logo-dark"
+                        src={logos}
+                        alt="logo"
+                        width={150}
+                        height={55}
+                      />
                     </Link>
                   </div>
                 </div>

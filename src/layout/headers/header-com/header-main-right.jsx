@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
-import Image from "next/image";
+
 // internal
 import useCartInfo from "@/hooks/use-cart-info";
 import { CartTwo, Compare, Menu, User, Wishlist } from "@/svg";

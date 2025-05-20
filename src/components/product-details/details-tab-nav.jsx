@@ -43,7 +43,7 @@ const DetailsTabNav = ({ product }) => {
       <div className="tp-product-details-tab-nav tp-tab">
         <nav>
           <div
-            className="nav nav-tabs justify-content-center p-relative tp-product-tab"
+            className="nav nav-tabs p-relative tp-product-tab"
             id="navPresentationTab"
             role="tablist"
           >
@@ -102,7 +102,7 @@ const DetailsTabNav = ({ product }) => {
             tabIndex="-1"
           >
             <div className="tp-product-details-additional-info ">
-              <div className="row justify-content-center">
+              <div className="row">
                 <div className="col-xl-10">
                   <table>
                     <tbody>

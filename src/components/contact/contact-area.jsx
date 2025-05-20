@@ -1,10 +1,11 @@
 import React from "react";
-import Image from "next/image";
+
 // internal
 import ContactForm from "../forms/contact-form";
 import contact_icon_1 from "@assets/img/contact/contact-icon-1.png";
 import contact_icon_2 from "@assets/img/contact/contact-icon-2.png";
 import contact_icon_3 from "@assets/img/contact/contact-icon-3.png";
+import Image from "next/image";
 
 const ContactArea = () => {
   return (

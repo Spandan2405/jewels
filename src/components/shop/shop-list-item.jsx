@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 // import { useDispatch } from "react-redux";
-import Image from "next/image";
+
 // import { Rating } from "react-simple-star-rating";
 import Link from "next/link";
 // internal
-import { Cart, CompareThree, QuickView, Wishlist } from "@/svg";
 import { urlFor } from "@/lib/sanity";
+import Image from "next/image";
 // import { handleProductModal } from "@/redux/features/productModalSlice";
 // import { add_cart_product } from "@/redux/features/cartSlice";
 // import { add_to_wishlist } from "@/redux/features/wishlist-slice";

@@ -8,6 +8,7 @@ import ErrorMsg from "@/components/common/error-msg";
 import Footer from "@/layout/footers/footer";
 import ShopLoader from "@/components/loader/shop/shop-loader";
 import { getProducts } from "@/lib/fetchData";
+import MobileFilter from "@/components/shop/MobileFilter";
 
 const ShopPage = ({ query }) => {
   const [products, setProducts] = useState([]);
@@ -49,7 +50,7 @@ const ShopPage = ({ query }) => {
     setCurrPage,
   };
 
-  console.log(products);
+  // console.log(products);
   let content = null;
 
   if (isLoading) {
@@ -113,6 +114,7 @@ const ShopPage = ({ query }) => {
           products={product_items}
           otherProps={otherProps}
         />
+        <MobileFilter otherProps={otherProps} setCurrPage={setCurrPage} />
       </>
     );
   }
@@ -121,9 +123,9 @@ const ShopPage = ({ query }) => {
     <Wrapper>
       <SEO pageTitle="Shop" />
       <HeaderTwo style_2={true} />
-      <ShopBreadcrumb title="Shop Grid" subtitle="Shop Grid" />
+      <ShopBreadcrumb title="Shop Grid" subtitle="Shop" />
       {content}
-      <Footer primary_style={true} />
+      <Footer />
     </Wrapper>
   );
 };

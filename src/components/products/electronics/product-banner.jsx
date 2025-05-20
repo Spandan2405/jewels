@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+
 import { Pagination, EffectFade } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 // internal
@@ -8,6 +8,7 @@ import offer_img from "@assets/img/banner/banner-slider-offer.png";
 import banner_img_1 from "@assets/img/banner/banner-slider-1.png";
 import banner_img_2 from "@assets/img/banner/banner-slider-2.png";
 import banner_img_3 from "@assets/img/banner/banner-slider-3.png";
+import Image from "next/image";
 
 // banner products
 const bannerProducts = [

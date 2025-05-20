@@ -16,10 +16,10 @@ const DetailsBottomInfo = ({ tag, product }) => {
           <span>Category: </span>
           <p>{category}</p>
         </div> */}
-        <div className="tp-product-details-query-item d-flex align-items-center">
+        {/* <div className="tp-product-details-query-item d-flex align-items-center">
           <span>Type: </span>
           <p>{tag}</p>
-        </div>
+        </div> */}
       </div>
       <div className="tp-product-details-bottom pb-30">
         <div className="container">
@@ -32,7 +32,7 @@ const DetailsBottomInfo = ({ tag, product }) => {
       </div>
       {/*  product-details-social*/}
 
-      <div className="tp-product-details-social">
+      {/* <div className="tp-product-details-social">
         <span>Share: </span>
         <a href="#">
           <i className="fa-brands fa-facebook-f"></i>
@@ -46,7 +46,7 @@ const DetailsBottomInfo = ({ tag, product }) => {
         <a href="#">
           <i className="fa-brands fa-vimeo-v"></i>
         </a>
-      </div>
+      </div> */}
 
       {/* product-details-msg */}
 

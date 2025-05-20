@@ -6,7 +6,7 @@
 const menu_data = [
   {
     id: 1,
-    homes: false,
+    homes: true,
     title: "Home",
     link: "/",
   },
@@ -67,12 +67,6 @@ const menu_data = [
   },
   {
     id: 3,
-    sub_menu: false,
-    title: "Shop",
-    link: "/shop",
-  },
-  {
-    id: 4,
     sub_menu: true,
     title: "About",
     link: "/blog",
@@ -82,7 +76,7 @@ const menu_data = [
     ],
   },
   {
-    id: 5,
+    id: 4,
     single_link: true,
     title: "Contact",
     link: "/contact",

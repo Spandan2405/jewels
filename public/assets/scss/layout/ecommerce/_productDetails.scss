@@ -21,7 +21,8 @@
       margin-top: 50px;
     }
     & > p {
-      font-size: 15px;
+      margin-bottom: 36px;
+      font-size: 14px;
       line-height: 1.7;
 
       & span {
@@ -34,8 +35,14 @@
     position: relative;
     & img {
       object-fit: cover;
-      height: auto;
+      // height: auto;
       border-radius: 12px;
+
+      @media #{$xs} {
+        width: 100%;
+        height: 40%;
+        margin: 10px 0px;
+      }
     }
   }
   &-thumb {
@@ -43,28 +50,39 @@
       position: sticky;
       top: 120px;
       flex: 0 0 auto;
-      @media #{$md, $sm, $xs} {
-        position: initial;
+      @media #{$sm, $xs} {
+        // position: initial;
+        display: flex;
+        flex-direction: column-reverse;
       }
       & .nav-tabs {
-        margin-right: 10px;
+        margin-right: 12px;
         justify-content: space-between;
-        & .nav-link {
-          width: 78px;
-          height: 100px;
+
+        @media #{$xs} {
+          margin-right: 0;
+        }
+
+        .nav-link {
+          width: 90px;
+          height: 120px;
           position: relative;
           background-color: #f4f5f7;
           border-radius: 8px;
+          overflow: hidden; // Ensures the scaling effect doesn’t break the border radius
+
           @media #{$xs} {
-            width: 75px;
-            height: 100px;
+            width: 21vw;
+            height: 15vh;
             margin-bottom: 10px;
             justify-content: space-between;
             border-radius: 8px;
           }
+
           &:not(:last-child) {
-            margin-bottom: 10px;
+            margin-bottom: 13px;
           }
+
           &::after {
             position: absolute;
             content: "";
@@ -76,19 +94,29 @@
             left: 0;
             @extend %tp-transition;
           }
+
           &.active,
           &:hover {
-            &::after {
-              border-color: var(--tp-common-black);
+            // &::after {
+            //   border-color: var(--tp-common-black);
+            //   @include transform(scale(1.2));
+            // }
+
+            // Apply scale effect to the image
+            img {
+              filter: grayscale(0%);
+              transform: scale(1.2);
             }
           }
-          & img {
+
+          img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 4px;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
           }
-
           & .nav-video-btn {
             position: absolute;
             top: 0;
@@ -199,7 +227,7 @@
     }
   }
   &-title {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 500;
     line-height: 1;
     margin-bottom: 15px;
@@ -243,11 +271,15 @@
     }
   }
   &-variation {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     &-title {
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 400;
       margin-bottom: 4px;
+
+      @media #{$xs} {
+        font-size: 14px;
+      }
     }
     &-item {
       &:not(:last-child) {
@@ -275,7 +307,9 @@
           @include tp-transition(all, 0.2s, linear);
           @include transform(translate(-50%, -50%));
         }
-
+        & span {
+          font-size: 12px;
+        }
         & .tp-color-variation-tootltip {
           position: absolute;
           bottom: 100%;
@@ -463,6 +497,7 @@
   }
   &-social {
     margin-bottom: 22px;
+    font-size: 20px;
     & span {
       font-size: 15px;
       color: var(--tp-common-black);
@@ -654,7 +689,7 @@
     }
   }
   &-additional-info {
-    padding-top: 30px;
+    padding-top: 36px;
     // @media #{$xs} {
     //   overflow-x: scroll;
     // }
@@ -710,10 +745,18 @@
             color: var(--tp-common-black);
             background-color: #f9f9f9;
             width: 306px;
+
+            @media #{$xs} {
+              font-size: 14px;
+            }
           }
           &:last-child {
             font-size: 16px;
             color: var(--tp-text-body);
+
+            @media #{$xs} {
+              font-size: 14px;
+            }
           }
         }
       }
@@ -1053,6 +1096,7 @@
           }
 
           @media #{$xs} {
+            font-size: 18px;
             &::after {
               position: absolute;
               content: "";

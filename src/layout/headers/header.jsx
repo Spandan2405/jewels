@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 // internal
@@ -23,6 +22,7 @@ import {
   ShippingCar,
   Wishlist,
 } from "@/svg";
+import Image from "next/image";
 
 const Header = () => {
   const { wishlist } = useSelector((state) => state.wishlist);

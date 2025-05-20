@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { mobile_menu } from "@/data/menu-data";
 
@@ -36,7 +37,7 @@ const MobileMenus = () => {
                       isActiveMenu === menu.title ? "dropdown-opened" : ""
                     }`}
                   >
-                    <i class="fa fa-angle-right" aria-hidden="true" />
+                    <i class="fa fa-angle-down" aria-hidden="true" />
                   </button>
                 </a>
                 <ul

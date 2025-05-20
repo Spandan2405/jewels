@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 // internal
 import SEO from "@/components/seo";
 import HeaderTwo from "@/layout/headers/header-2";
@@ -8,30 +8,14 @@ import ErrorMsg from "@/components/common/error-msg";
 import ProductDetailsBreadcrumb from "@/components/breadcrumb/product-details-breadcrumb";
 import ProductDetailsArea from "@/components/product-details/product-details-area";
 import PrdDetailsLoader from "@/components/loader/prd-details-loader";
-import { getProductById } from "@/lib/fetchData";
 
 const ProductDetailsPage = ({ query }) => {
-  const [productItem, setProductItem] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
-
-  useEffect(() => {
-    const fetchProductById = async () => {
-      try {
-        const prod = await getProductById(query.id);
-        setProductItem(prod);
-      } catch (error) {
-        console.error(error);
-        setIsError(true);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchProductById();
-  }, [query]);
-
+  const {
+    data: product,
+    isLoading,
+    isError,
+  } = useGetProductQuery("6431364df5a812bd37e765ac");
   // decide what to render
-  console.log(productItem);
   let content = null;
   if (isLoading) {
     content = <PrdDetailsLoader loading={isLoading} />;
@@ -39,15 +23,14 @@ const ProductDetailsPage = ({ query }) => {
   if (!isLoading && isError) {
     content = <ErrorMsg msg="There was an error" />;
   }
-  if (!productItem) return;
-  if (!isLoading && !isError && productItem) {
+  if (!isLoading && !isError && product) {
     content = (
       <>
         <ProductDetailsBreadcrumb
-          category={productItem.productType}
-          title={productItem.name}
+          category={product.category.name}
+          title={product.title}
         />
-        <ProductDetailsArea productItem={productItem} />
+        <ProductDetailsArea productItem={product} />
       </>
     );
   }
@@ -55,8 +38,8 @@ const ProductDetailsPage = ({ query }) => {
     <Wrapper>
       <SEO pageTitle="Product Details" />
       <HeaderTwo style_2={true} />
-      {content}
-      <Footer />
+      {/* {content} */}
+      <Footer primary_style={true} />
     </Wrapper>
   );
 };

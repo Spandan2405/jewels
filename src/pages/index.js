@@ -6,6 +6,7 @@ import JewelryShopBanner from "@/components/shop-banner/jewelry-shop-banner";
 import JewelryAbout from "@/components/about/jewelry-about";
 import InstagramAreaFour from "@/components/instagram/instagram-area-4";
 import Footer from "@/layout/footers/footer";
+import BeautyBanner from "@/components/banner/beauty-banner";
 
 export default function Home() {
   return (
@@ -13,9 +14,10 @@ export default function Home() {
       <SEO pageTitle="Home" />
       <HeaderThree />
       <JewelryBanner />
-      <JewelryShopBanner />
+      <BeautyBanner />
+      {/* <JewelryShopBanner />
       <JewelryAbout />
-      <InstagramAreaFour />
+      <InstagramAreaFour /> */}
       <Footer />
     </Wrapper>
   );

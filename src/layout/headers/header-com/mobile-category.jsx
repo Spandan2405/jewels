@@ -1,10 +1,11 @@
 import { useState } from "react";
-import Image from "next/image";
+
 import { useRouter } from "next/router";
 // internal
 // import { useGetProductTypeCategoryQuery } from "@/redux/features/categoryApi";
 import ErrorMsg from "@/components/common/error-msg";
 import Loader from "@/components/loader/loader";
+import Image from "next/image";
 
 const MobileCategory = ({ isCategoryActive, categoryType }) => {
   // const {data: categories,isError,isLoading} = useGetProductTypeCategoryQuery(categoryType);

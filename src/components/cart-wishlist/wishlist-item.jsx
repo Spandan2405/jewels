@@ -1,11 +1,15 @@
 import React from "react";
-import Image from "next/image";
+
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
 // internal
 import { Close, Minus, Plus } from "@/svg";
-import {add_cart_product,quantityDecrement} from "@/redux/features/cartSlice";
+import {
+  add_cart_product,
+  quantityDecrement,
+} from "@/redux/features/cartSlice";
 import { remove_wishlist_product } from "@/redux/features/wishlist-slice";
+import Image from "next/image";
 
 const WishlistItem = ({ product }) => {
   const { _id, img, title, price } = product || {};

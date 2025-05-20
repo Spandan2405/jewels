@@ -117,7 +117,7 @@
             }
             &.dropdown-opened {
               & i {
-                @include transform(rotate(90deg));
+                @include transform(rotate(180deg));
               }
             }
             &:hover {

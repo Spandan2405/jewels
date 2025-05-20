@@ -123,6 +123,12 @@
       }
     }
   }
+  &__logo {
+    & img {
+      height: 15vh;
+      width: 60vw;
+    }
+  }
   &__text {
     & p {
       font-family: var(--tp-ff-inter);

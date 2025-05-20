@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import { urlFor } from "@/lib/sanity"; // Ensure you have the image URL builder setup in your Sanity client
 import Link from "next/link";
@@ -13,7 +12,7 @@ const ProductItem = ({ product, style_2 = false }) => {
       <div className="tp-product-thumb-2 ">
         <Link href={`/product-details/${productID}`}>
           {img && (
-            <Image
+            <img
               src={urlFor(img)}
               alt={name || "Product Image"}
               width={284}
@@ -26,7 +25,16 @@ const ProductItem = ({ product, style_2 = false }) => {
         <h3 className="tp-product-title-2">
           <Link href={`/product-details/${productID}`}>{name}</Link>
         </h3>
-        <div className="tp-product-tag-2">{productType}</div>
+        <div className="tp-product-tag-2">
+          <Link
+            href={`/shop?subcategory=${productType
+              .toLowerCase()
+              .split(" ")
+              .join("-")}`}
+          >
+            {productType}
+          </Link>
+        </div>
       </div>
     </div>
   );

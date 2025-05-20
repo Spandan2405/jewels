@@ -2,10 +2,8 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 // internal
-import logo from "@assets/img/logo/logo.svg";
-import pay from "@assets/img/footer/footer-pay.png";
+import logos from "@assets/img/logo/logos.svg";
 import social_data from "@/data/social-data";
-import { Email, Location } from "@/svg";
 
 const Footer = ({
   style_2 = false,
@@ -28,103 +26,46 @@ const Footer = ({
         }`}
         data-bg-color={`${style_2 ? "footer-bg-white" : "footer-bg-grey"}`}
       >
-        <div className="tp-footer-top pt-95 pb-40">
-          <div className="container">
+        <div className="tp-footer-top">
+          <div className="container-fluid">
             <div className="row">
-              <div className="col-xl-4 col-lg-3 col-md-4 col-sm-6">
-                <div className="tp-footer-widget footer-col-1 mb-50">
+              <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                <div className="tp-footer-widget footer-col-1 md:mb-20">
                   <div className="tp-footer-widget-content">
                     <div className="tp-footer-logo">
                       <Link href="/">
-                        <Image src={logo} alt="logo" />
+                        <Image src={logos} alt="logo" height={65} width={200} />
                       </Link>
                     </div>
-                    <p className="tp-footer-desc">
-                      Description about the website
-                    </p>
-                    <div className="tp-footer-social">
+                    <div className="tp-footer-social d-xl-flex d-sm-block">
                       {social_data.map((s) => (
-                        <a href={s.link} key={s.id} target="_blank">
-                          <i className={s.icon}></i>
-                        </a>
+                        <div className="tp-footer-social-item d-flex  align-items-center ">
+                          {s.svg}
+                          <a href={s.link} key={s.id} target="_blank">
+                            <span>{s.desc}</span>
+                          </a>
+                        </div>
                       ))}
                     </div>
                   </div>
                 </div>
               </div>
-              {/* <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-                <div className="tp-footer-widget footer-col-2 mb-50">
-                  <h4 className="tp-footer-widget-title">My Account</h4>
-                  <div className="tp-footer-widget-content">
-                    <ul>
-                      <li>
-                        <a href="#">Track Orders</a>
-                      </li>
-                      <li>
-                        <a href="#">Shipping</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div> */}
-              <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                <div className="tp-footer-widget footer-col-3 mb-50">
-                  <h4 className="tp-footer-widget-title">Information</h4>
-                  <div className="tp-footer-widget-content">
-                    <ul>
-                      <li>
-                        <a href="#">Our Story</a>
-                      </li>
-                      <li>
-                        <a href="#">Contact Us</a>
-                      </li>
-                    </ul>
+              <div className="col-xl-5 col-lg-4 col-md-3 col-sm-12 ">
+                <div className="tp-footer-widget footer-col-2">
+                  <div className="tp-footer-widget-links d-flex">
+                    <Link href="/">Home</Link>
+                    <Link href="/about">About</Link>
+                    <Link href="/shop">Products</Link>
+                    <Link href="/contact">Contact</Link>
                   </div>
                 </div>
               </div>
-              <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                <div className="tp-footer-widget footer-col-4 mb-50">
-                  <h4 className="tp-footer-widget-title">Talk To Us</h4>
-                  <div className="tp-footer-widget-content">
-                    <div className="tp-footer-talk mb-20">
-                      <span>Got Questions? Call us</span>
-                      <h4>
-                        <a href="tel:670-413-90-762">+966 595 035 008</a>
-                      </h4>
-                    </div>
-                    <div className="tp-footer-contact">
-                      <div className="tp-footer-contact-item d-flex align-items-start">
-                        <div className="tp-footer-contact-icon">
-                          <span>
-                            <Email />
-                          </span>
-                        </div>
-                        <div className="tp-footer-contact-content">
-                          <p>
-                            <a href="mailto:shofy@support.com">
-                              swe.hamedhasan@gmail.com
-                            </a>
-                          </p>
-                        </div>
-                      </div>
-                      <div className="tp-footer-contact-item d-flex align-items-start">
-                        <div className="tp-footer-contact-icon">
-                          <span>
-                            <Location />
-                          </span>
-                        </div>
-                        <div className="tp-footer-contact-content">
-                          <p>
-                            <a
-                              href="https://www.google.com/maps/place/Surat,+Gujarat/@21.1594406,72.6574719,11z/data=!3m1!4b1!4m6!3m5!1s0x3be04e59411d1563:0xfe4558290938b042!8m2!3d21.1702401!4d72.8310607!16zL20vMDFoMWhu?entry=ttu&g_ep=EgoyMDI1MDMxOC4wIKXMDSoASAFQAw%3D%3D"
-                              target="_blank"
-                            >
-                              Surat , Gujarat
-                            </a>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+              <div className="col-xl-3 col-lg-4 col-md-5 col-sm-12 mt-30">
+                <div className="tp-footer-contact-content footer-col-4 ">
+                  <p>Any queries related to products</p>
+                  <div className="tp-footer-contact-content-form d-flex">
+                    <input type="text" placeholder="Type your query...." />
+                    <button>Send</button>
                   </div>
                 </div>
               </div>
@@ -132,20 +73,21 @@ const Footer = ({
           </div>
         </div>
         <div className="tp-footer-bottom">
-          <div className="container">
-            <div className="tp-footer-bottom-wrapper">
-              <div className="row align-items-center">
-                <div className="col-md-6">
-                  <div className="tp-footer-copyright">
-                    <p>© {new Date().getFullYear()} All Rights Reserved</p>
-                  </div>
+          <div className="tp-footer-bottom-wrapper">
+            <div className="row align-items-center">
+              <div className="col-md-6">
+                <div className="tp-footer-bottom-info">
+                  <span>Terms & Conditions</span>
+                  <span>Privacy Policy</span>
+                  <span>Accessibility</span>
+                  <span>Legal</span>
                 </div>
-                <div className="col-md-6">
-                  <div className="tp-footer-payment text-md-end">
-                    <p>
-                      <Image src={pay} alt="pay" />
-                    </p>
-                  </div>
+              </div>
+              <div className="col-md-6">
+                <div className="tp-footer-copyright text-xl-end text-lg-end text-md-end text-sm-start">
+                  <span>
+                    Designed with love © RareStonz 2025. All rights reserved
+                  </span>
                 </div>
               </div>
             </div>

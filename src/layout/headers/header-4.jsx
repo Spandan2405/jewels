@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import Image from "next/image";
+
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 // internal
-import { CartTwo, Menu, Search, Wishlist } from "@/svg";
 import Menus from "./header-com/menus";
 import logo_white from "@assets/img/logo/logo-white.svg";
 import logo_dark from "@assets/img/logo/logo.svg";
@@ -12,7 +11,7 @@ import SearchBar from "./header-com/search-bar";
 import OffCanvas from "@/components/common/off-canvas";
 import useCartInfo from "@/hooks/use-cart-info";
 import CartMiniSidebar from "@/components/common/cart-mini-sidebar";
-import { openCartMini } from "@/redux/features/cartSlice";
+import Image from "next/image";
 
 const HeaderFour = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);

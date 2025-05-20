@@ -3,11 +3,15 @@ import Link from "next/link";
 import Image from "next/image";
 // internal
 import { CloseTwo } from "@/svg";
-import logo from "@assets/img/logo/logo.svg";
+import logos from "@assets/img/logo/logos.svg";
 import contact_img from "@assets/img/icon/contact.png";
 import MobileMenus from "./mobile-menus";
 
-const OffCanvas = ({ isOffCanvasOpen, setIsCanvasOpen = "electronics" }) => {
+const OffCanvas = ({
+  isOffCanvasOpen,
+  setIsCanvasOpen,
+  categoryType = "electronics",
+}) => {
   const [isCategoryActive, setIsCategoryActive] = useState(false);
   const [isCurrencyActive, setIsCurrencyActive] = useState(false);
   const [isLanguageActive, setIsLanguageActive] = useState(false);
@@ -42,7 +46,7 @@ const OffCanvas = ({ isOffCanvasOpen, setIsCanvasOpen = "electronics" }) => {
             <div className="offcanvas__top mb-70 d-flex justify-content-between align-items-center">
               <div className="offcanvas__logo logo">
                 <Link href="/">
-                  <Image src={logo} alt="logo" />
+                  <Image src={logos} alt="logo" />
                 </Link>
               </div>
             </div>
@@ -70,11 +74,6 @@ const OffCanvas = ({ isOffCanvasOpen, setIsCanvasOpen = "electronics" }) => {
                   <a href="tel:098-852-987">004524865</a>
                 </h3>
               </div>
-            </div>
-            <div className="offcanvas__btn">
-              <Link href="/contact" className="tp-btn-2 tp-btn-border-2">
-                Contact Us
-              </Link>
             </div>
           </div>
         </div>

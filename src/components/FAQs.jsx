@@ -32,12 +32,12 @@ const faqs = [
 
 export default function App() {
   return (
-    <section className="tp-banner-area">
+    <section className="tp-banner-area pt-40">
       <div className="container">
         <div className="row">
-          <div className="col-xl-12 col-lg-7">
+          <div className="w-screen">
             <div className={styles.accordion}>
-              <h2 className="text-center">FAQs</h2>
+              <h2 className="text-start">FAQs</h2>
               <Accordion data={faqs} />
             </div>
           </div>
@@ -82,7 +82,7 @@ function AccordionItem({ num, title, curOpen, onOpen, children }) {
       >
         <p className={styles.number}>{num < 9 ? `0${num + 1}` : num + 1}</p>
         <p className={styles.title}>{title}</p>
-        <p className={styles.icon}>{isOpen ? "-" : "+"}</p>
+        <p className={styles.icon}>{isOpen ? "–" : "+"}</p>
 
         {isOpen && <div className={styles.contentBox}>{children}</div>}
       </div>

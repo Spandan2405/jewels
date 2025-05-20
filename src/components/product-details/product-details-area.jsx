@@ -18,21 +18,23 @@ const ProductDetailsArea = ({ productItem }) => {
   };
   return (
     <section className="tp-product-details-area">
-      <div className="tp-product-details-top pb-50">
+      <div className="tp-product-details-top">
         <div className="container">
           <div className="row">
-            <div className="col-xl-7 col-lg-6">
+            <div className="col-xl-7 col-lg-7">
               {/* product-details-thumb-wrapper start */}
               <DetailsThumbWrapper
                 activeImg={activeImg}
                 handleImageActive={handleImageActive}
                 imageURLs={imageLink}
-                imgWidth={580}
-                imgHeight={670}
+                imgWidth={520}
+                imgHeight={520}
+                // videoId={videoId}
+                // status={status}
               />
               {/* product-details-thumb-wrapper end */}
             </div>
-            <div className="col-xl-5 col-lg-6">
+            <div className="col-xl-5 col-lg-5">
               {/* product-details-wrapper start */}
               <DetailsWrapper
                 productItem={productItem}

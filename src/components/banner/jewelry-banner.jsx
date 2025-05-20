@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Image from "next/image";
 import Slider from "react-slick";
 // internal
 import slider_img_1 from "@assets/img/slider/4/slider-1.png";
@@ -11,9 +10,8 @@ import nav_icon_1 from "@assets/img/slider/4/nav/icon-1.png";
 import nav_icon_2 from "@assets/img/slider/4/nav/icon-2.png";
 import nav_icon_3 from "@assets/img/slider/4/nav/icon-3.png";
 import nav_icon_4 from "@assets/img/slider/4/nav/icon-4.png";
-import { ArrowNextTwo, ArrowPrevTwo, Pause, Play } from "@/svg";
-import text_shape from "@assets/img/slider/4/shape/rounded-test.png";
 import Link from "next/link";
+import Image from "next/image";
 
 // slider data
 const slider_data = [
@@ -86,19 +84,8 @@ const JewelryBanner = () => {
   };
 
   //
-  const [play, setPlay] = useState(false);
+  const [play] = useState(false);
 
-  const handleToggle = () => {
-    if (play === false) {
-      setPlay(true);
-      const videos = document.querySelectorAll(".tp-slider-video video");
-      videos.forEach((video) => video.play());
-    } else {
-      setPlay(false);
-      const videos = document.querySelectorAll(".tp-slider-video video");
-      videos.forEach((video) => video.pause());
-    }
-  };
   return (
     <>
       <section className="tp-slider-area p-relative z-index-1 fix">

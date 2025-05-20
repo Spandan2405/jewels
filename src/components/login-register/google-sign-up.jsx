@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+
 import { GoogleLogin } from "@react-oauth/google";
 import { useRouter } from "next/router";
 // internal
