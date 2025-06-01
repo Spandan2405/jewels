@@ -60,7 +60,7 @@ const OffCanvas = ({
               </div>
             </div>
             <div className="tp-main-menu-mobile fix d-lg-none mb-40">
-              <MobileMenus />
+              <MobileMenus setIsCanvasOpen={setIsCanvasOpen} />
             </div>
 
             <div className="offcanvas__contact align-items-center d-none">

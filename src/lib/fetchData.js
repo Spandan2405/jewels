@@ -35,6 +35,7 @@ export async function getProductById(productID) {
         grossWeight,
         noDiamonds,
         sourceLink,
+        productVideo,
         productDescription,
         imageLink,
         img,

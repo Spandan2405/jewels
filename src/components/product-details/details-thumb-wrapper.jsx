@@ -1,4 +1,6 @@
 import { urlFor } from "@/lib/sanity";
+import { useState } from "react";
+import PopupVideo from "../common/popup-video";
 
 const DetailsThumbWrapper = ({
   imageURLs,
@@ -6,8 +8,10 @@ const DetailsThumbWrapper = ({
   activeImg,
   imgWidth = 416,
   imgHeight = 480,
+  videoURL = false,
 }) => {
   // console.log(imageURLs);
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
   return (
     <>
       <div className="tp-product-details-thumb-wrapper tp-tab d-sm-flex">
@@ -20,13 +24,15 @@ const DetailsThumbWrapper = ({
                   className={`nav-link ${item.i === activeImg ? "active" : ""}`}
                   onClick={() => handleImageActive(item)}
                 >
-                  <img
-                    src={item}
-                    alt="image"
-                    width={78}
-                    height={100}
-                    style={{ width: "100%", height: "100%" }}
-                  />
+                  {
+                    <img
+                      src={item}
+                      alt="image"
+                      width={78}
+                      height={100}
+                      style={{ width: "100%", height: "100%" }}
+                    />
+                  }
                 </button>
               ))}
             </div>
@@ -41,10 +47,27 @@ const DetailsThumbWrapper = ({
                 width={imgWidth}
                 height={imgHeight}
               />
+              {activeImg === imageURLs[imageURLs.length - 1] && videoURL && (
+                <div
+                  onClick={() => setIsVideoOpen(true)}
+                  className="tp-product-details-thumb-video"
+                >
+                  <a className="tp-product-details-thumb-video-btn cursor-pointer popup-video">
+                    <i className="fas fa-play"></i>
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         </div>
       </div>
+      {videoURL && (
+        <PopupVideo
+          isVideoOpen={isVideoOpen}
+          setIsVideoOpen={setIsVideoOpen}
+          videoURL={videoURL}
+        />
+      )}
     </>
   );
 };

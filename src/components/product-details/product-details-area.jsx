@@ -4,7 +4,7 @@ import DetailsWrapper from "./details-wrapper";
 import FAQs from "@/components/FAQs";
 
 const ProductDetailsArea = ({ productItem }) => {
-  const { img, imageLink } = productItem || {};
+  const { img, imageLink, productVideo } = productItem || {};
   const [activeImg, setActiveImg] = useState(img);
 
   // active image change when img change
@@ -29,7 +29,7 @@ const ProductDetailsArea = ({ productItem }) => {
                 imageURLs={imageLink}
                 imgWidth={520}
                 imgHeight={520}
-                // videoId={videoId}
+                videoURL={productVideo}
                 // status={status}
               />
               {/* product-details-thumb-wrapper end */}
