@@ -18,7 +18,7 @@ const ProductItem = ({ product, offer_style = false }) => {
     status,
     offerDate,
   } = product || {};
-  console.log(status);
+  // console.log(status);
   const dispatch = useDispatch();
   return (
     <>

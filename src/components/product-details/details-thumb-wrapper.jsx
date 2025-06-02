@@ -1,6 +1,7 @@
 import { urlFor } from "@/lib/sanity";
 import { useState } from "react";
 import PopupVideo from "../common/popup-video";
+import ReactPlayer from "react-player";
 
 const DetailsThumbWrapper = ({
   imageURLs,
@@ -15,7 +16,7 @@ const DetailsThumbWrapper = ({
   return (
     <>
       <div className="tp-product-details-thumb-wrapper tp-tab d-sm-flex">
-        <div className="tp-product-details-thumb-nav flex-col">
+        <div className={`tp-product-details-thumb-nav flex-col`}>
           <nav>
             <div className="nav nav-tabs flex-sm-column">
               {imageURLs?.map((item, i) => (
@@ -41,21 +42,52 @@ const DetailsThumbWrapper = ({
         <div className="tab-content m-img flex-col">
           <div className="tab-pane fade show active">
             <div className="tp-product-details-nav-main-thumb p-relative">
-              <img
-                src={urlFor(activeImg)}
-                alt="product img"
-                width={imgWidth}
-                height={imgHeight}
-              />
-              {activeImg === imageURLs[imageURLs.length - 1] && videoURL && (
+              {activeImg === imageURLs[imageURLs.length - 1] && videoURL ? (
                 <div
-                  onClick={() => setIsVideoOpen(true)}
-                  className="tp-product-details-thumb-video"
+                  className="product-video-container"
+                  style={{
+                    width: imgWidth,
+                    // height: imgHeight,
+                    maxWidth: "100%",
+                    aspectRatio: `${imgWidth}/${imgHeight}`,
+                    marginBottom: "10px",
+                  }}
                 >
-                  <a className="tp-product-details-thumb-video-btn cursor-pointer popup-video">
-                    <i className="fas fa-play"></i>
-                  </a>
+                  <ReactPlayer
+                    url={videoURL}
+                    width="100%"
+                    height="100%"
+                    controls
+                    playing
+                    muted
+                    loop
+                    playsinline
+                    config={{
+                      file: {
+                        attributes: {
+                          controlsList: "nodownload",
+                          disablePictureInPicture: true,
+                        },
+                      },
+                    }}
+                    className="product-video"
+                    style={{
+                      display: "block",
+                    }}
+                  />
                 </div>
+              ) : (
+                <img
+                  src={urlFor(activeImg)}
+                  alt="product img"
+                  width={imgWidth}
+                  style={{
+                    width: imgWidth,
+                    maxWidth: "100%",
+                    objectFit: "contain",
+                    aspectRatio: `${imgWidth}/${imgHeight}`,
+                  }}
+                />
               )}
             </div>
           </div>

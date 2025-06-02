@@ -59,10 +59,8 @@
 
     @media #{$lg, $md, $sm, $xs} {
       width: 100%;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-end;
-      gap: 10px;
+      justify-content: space-between;
+      gap: 30px;
     }
     @media #{$lg} {
       margin-left: 0px;

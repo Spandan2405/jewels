@@ -60,7 +60,7 @@ const Footer = ({
                   </div>
                 </div>
               </div>
-              <div className="col-xl-3 col-lg-4 col-md-5 col-sm-12 mt-30">
+              <div className="col-xl-3 col-lg-4 col-md-5 col-sm-12 mt-20">
                 <div className="tp-footer-contact-content footer-col-4 ">
                   <p>Any queries related to products</p>
                   <div className="tp-footer-contact-content-form d-flex">

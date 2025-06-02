@@ -31,7 +31,7 @@ const ProductDetailsPage = ({ query }) => {
   }, [query]);
 
   // decide what to render
-  console.log(productItem);
+  // console.log(productItem);
   let content = null;
   if (isLoading) {
     content = <PrdDetailsLoader loading={isLoading} />;
