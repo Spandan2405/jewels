@@ -42,7 +42,7 @@ const DetailsThumbWrapper = ({
         <div className="tab-content m-img flex-col">
           <div className="tab-pane fade show active">
             <div className="tp-product-details-nav-main-thumb p-relative">
-              {activeImg === imageURLs[imageURLs.length - 1] && videoURL ? (
+              {activeImg === imageURLs[1] && videoURL ? (
                 <div
                   className="product-video-container"
                   style={{
