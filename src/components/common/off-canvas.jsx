@@ -44,11 +44,11 @@ const OffCanvas = ({
           </div>
           <div className="offcanvas__content">
             <div className="offcanvas__top mb-70 d-flex justify-content-between align-items-center">
-              <div className="offcanvas__logo logo">
+              {/* <div className="offcanvas__logo logo">
                 <Link href="/">
                   <Image src={logos} alt="logo" />
                 </Link>
-              </div>
+              </div> */}
             </div>
             <div className="offcanvas__category pb-40">
               <div className="tp-category-mobile-menu">
