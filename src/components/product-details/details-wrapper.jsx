@@ -4,8 +4,7 @@ import { notifyError, notifySuccess, ToastContainer } from "@/utils/toast"; // I
 import Share from "@/svg/share";
 
 const DetailsWrapper = ({ productItem, detailsBottom = false }) => {
-  const { productType, goldColor, productDescription, name } =
-    productItem || {};
+  const { productType, productDescription, name } = productItem || {};
   const [textMore, setTextMore] = useState(false);
   const [productURL, setProductURL] = useState("");
 
@@ -38,16 +37,19 @@ const DetailsWrapper = ({ productItem, detailsBottom = false }) => {
         </button>
       </div>
 
-      <p>
+      <h4 className="tp-product-details-variation-title">
+        Type: <span>{productType}</span>
+      </h4>
+      {/* <p>
         {textMore
           ? productDescription
           : `${productDescription?.substring(0, 100)}...`}
         <span onClick={() => setTextMore(!textMore)}>
-          {textMore ? "See less" : "See more"}
+          {textMore ? " See less" : " See more"}
         </span>
-      </p>
+      </p> */}
 
-      <div className="tp-product-details-variation d-flex">
+      {/* <div className="tp-product-details-variation d-flex">
         <div className="tp-product-details-variation-item">
           <h4 className="tp-product-details-variation-title">Color </h4>
           <div className="tp-product-details-variation-list">
@@ -75,7 +77,7 @@ const DetailsWrapper = ({ productItem, detailsBottom = false }) => {
             Type: <span>{productType}</span>
           </h4>
         </div>
-      </div>
+      </div> */}
 
       {detailsBottom && (
         <DetailsBottomInfo tag={productType} product={productItem} />

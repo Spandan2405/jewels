@@ -68,7 +68,7 @@ const ShopPage = ({ query }) => {
   }
   if (!isLoading && !isError && products.length > 0) {
     // products
-    let product_items = products;
+    let product_items = [...products];
     // select short filtering
     if (selectValue) {
       if (selectValue === "Default Sorting") {
@@ -103,7 +103,8 @@ const ShopPage = ({ query }) => {
     // color filter
     if (query.color) {
       product_items = product_items.filter(
-        (product) => product.goldColor === query.color
+        (product) =>
+          product.goldColor?.toLowerCase().replace(/\s+/g, "-") === query.color
       );
       // console.log(product_items);
     }

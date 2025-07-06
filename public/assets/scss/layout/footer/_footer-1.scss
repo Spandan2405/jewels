@@ -76,8 +76,11 @@
   &-top {
     padding: 20px 40px;
 
-    @media #{$sm, $xs , $md} {
+    @media #{ $md} {
       padding: 20px;
+    }
+    @media #{ $xs ,$sm} {
+      padding: 5px;
     }
   }
   &-logo {
@@ -206,9 +209,13 @@
     padding: 18px 40px 40px 60px;
     border-top: 1px solid rgba($color: $black, $alpha: 0.1);
 
-    @media #{$md,$sm,$xs} {
+    @media #{$md} {
       padding: 18px 20px;
-      margin: 0px 20px;
+      margin: 0px 0px 40px 10px;
+    }
+    @media #{$sm,$xs} {
+      padding: 18px 10px;
+      margin: 0px 0px 40px 10px;
     }
   }
   &-info {

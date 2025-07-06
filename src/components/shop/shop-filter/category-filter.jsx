@@ -1,20 +1,20 @@
 import React from "react";
 import { useRouter } from "next/router";
 
-const CategoryFilter = ({ setCurrPage, shop_right = false, all_products }) => {
+const CategoryFilter = ({ setCurrPage, all_products }) => {
   const router = useRouter();
 
   let content = null;
   // handle category route
   const handleCategoryRoute = (title) => {
     setCurrPage(1);
-    router.push(
-      `/${shop_right ? "shop-right-sidebar" : "shop"}?category=${title
-        .toLowerCase()
-        .replace("&", "")
-        .split(" ")
-        .join("-")}`
-    );
+    router.push({
+      pathname: "/shop",
+      query: {
+        ...router.query,
+        category: title.toLowerCase().replace("&", "").split(" ").join("-"),
+      },
+    });
   };
   // decide what to render
 
@@ -37,7 +37,9 @@ const CategoryFilter = ({ setCurrPage, shop_right = false, all_products }) => {
         <a
           onClick={() => handleCategoryRoute(category)}
           style={{ cursor: "pointer" }}
-          className={router.query.category === data.category ? "active" : ""}
+          className={
+            router.query.category === category.toLowerCase() ? "active" : ""
+          }
         >
           {data.category}
           <span>{data.count}</span>

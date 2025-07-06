@@ -276,7 +276,7 @@
         & img {
           @media #{$sm , $xs} {
             height: 45px;
-            width: 100px;
+            width: 120px;
             object-fit: cover;
           }
         }

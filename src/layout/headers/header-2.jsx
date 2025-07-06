@@ -28,10 +28,10 @@ const HeaderTwo = ({ style_2 = false }) => {
           >
             <div className="container">
               <div className="tp-mega-menu-wrapper p-relative">
-                <div className="row align-items-center ">
+                <div className="row align-items-center justify-content-between">
                   <div className="col-xl-2 col-lg-3 col-md-5 col-sm-4 col-6">
                     <div className="logo">
-                      <Link href="/">
+                      <Link href="/shop">
                         <Image
                           src={logos}
                           alt="logo"
@@ -51,7 +51,7 @@ const HeaderTwo = ({ style_2 = false }) => {
                     </div>
                   </div>
                   <div className="col-lg-2 col-6">
-                    <div className="tp-header-action d-flex align-items-center justify-content-end ml-50">
+                    <div className="tp-header-action d-flex align-items-center justify-content-end">
                       <div className="tp-header-action-item d-lg-none">
                         <button
                           onClick={() => setIsCanvasOpen(true)}

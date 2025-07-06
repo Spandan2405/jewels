@@ -28,8 +28,8 @@ const ErrorPage = () => {
                   looking for was not found.
                 </p>
 
-                <Link href="/" className="tp-error-btn">
-                  Back to Home
+                <Link href="/shop" className="tp-error-btn">
+                  Back to Shop
                 </Link>
               </div>
             </div>

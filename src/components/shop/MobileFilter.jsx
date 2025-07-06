@@ -22,20 +22,24 @@ const MobileFilter = ({ otherProps, setCurrPage }) => {
   ];
   const handleCategoryRoute = (title) => {
     setCurrPage(1);
-    router.push(
-      `/shop?category=${title
-        .toLowerCase()
-        .replace("&", "")
-        .split(" ")
-        .join("-")}`
-    );
+    router.push({
+      pathname: "/shop",
+      query: {
+        ...router.query,
+        category: title.toLowerCase().replace("&", "").split(" ").join("-"),
+      },
+    });
     setIsFilterOpen(false);
   };
   const handleColor = (clr) => {
     setCurrPage(1);
-    router.push(
-      `/shop?color=${clr.toLowerCase().replace("&", "").split(" ").join("-")}`
-    );
+    router.push({
+      pathname: "/shop",
+      query: {
+        ...router.query,
+        color: clr.toLowerCase().replace("&", "").split(" ").join("-"),
+      },
+    });
     setIsFilterOpen(false);
   };
   const handleReset = () => {
@@ -125,7 +129,7 @@ const MobileFilter = ({ otherProps, setCurrPage }) => {
             </div>
             <div className="filter-group">
               <h5>Category</h5>
-              {["Pendants", "Rings", "Bracelets", "Earings"].map((cat) => (
+              {["Pendants", "Rings", "Bangles", "Earings"].map((cat) => (
                 <button onClick={() => handleCategoryRoute(cat)}>
                   <span>
                     <i class="fa-solid fa-check"></i>

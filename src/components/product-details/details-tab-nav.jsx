@@ -1,175 +1,97 @@
 import React, { useRef, useEffect } from "react";
 
 const DetailsTabNav = ({ product }) => {
-  const { goldPurity, grossWeight, noDiamonds } = product || {};
-  const activeRef = useRef(null);
-  const marker = useRef(null);
-  // handleActive
-  const handleActive = (e) => {
-    if (e.target.classList.contains("active")) {
-      marker.current.style.left = e.target.offsetLeft + "px";
-      marker.current.style.width = e.target.offsetWidth + "px";
-    }
-  };
-  useEffect(() => {
-    if (activeRef.current?.classList.contains("active")) {
-      marker.current.style.left = activeRef.current.offsetLeft + "px";
-      marker.current.style.width = activeRef.current.offsetWidth + "px";
-    }
-  }, []);
-  // nav item
-  function NavItem({ active = false, id, title, linkRef }) {
-    return (
-      <button
-        ref={linkRef}
-        className={`nav-link ${active ? "active" : ""}`}
-        id={`nav-${id}-tab`}
-        data-bs-toggle="tab"
-        data-bs-target={`#nav-${id}`}
-        type="button"
-        role="tab"
-        aria-controls={`nav-${id}`}
-        aria-selected={active ? "true" : "false"}
-        tabIndex="-1"
-        onClick={(e) => handleActive(e)}
-      >
-        {title}
-      </button>
-    );
-  }
+  const {
+    goldColor,
+    grossWeight,
+    goldPurity,
+    diamondClarity,
+    diamondColor,
+    noDiamonds,
+    diamondWeight,
+    metalType,
+  } = product || {};
 
   return (
-    <>
-      <div className="tp-product-details-tab-nav tp-tab">
-        <nav>
-          <div
-            className="nav nav-tabs p-relative tp-product-tab"
-            id="navPresentationTab"
-            role="tablist"
-          >
-            {/* <NavItem
-              active={true}
-              linkRef={activeRef}
-              id="desc"
-              title="Description"
-            /> */}
-            <NavItem
-              id="additional"
-              active={true}
-              linkRef={activeRef}
-              title="Additional information"
-            />
-            {/* <NavItem id="review" title={`Reviews (${reviews.length})`} /> */}
+    <div className="tp-product-details-additional-info">
+      <div className="row">
+        <div className="col-xl-10">
+          <table>
+            <tbody>
+              {/* Gold Section */}
 
-            <span
-              ref={marker}
-              id="productTabMarker"
-              className="tp-product-details-tab-line"
-            ></span>
-          </div>
-        </nav>
-        <div className="tab-content" id="navPresentationTabContent">
-          {/* nav-desc */}
-          <div
-            className="tab-pane fade show active"
-            id="nav-desc"
-            role="tabpanel"
-            aria-labelledby="nav-desc-tab"
-            tabIndex="-1"
-          >
-            {/* <div className="tp-product-details-desc-wrapper pt-60">
-              <div className="row">
-                <div className="col-xl-12">
-                  <div className="tp-product-details-desc-item">
-                    <div className="row align-items-center">
-                      <div className="col-lg-12">
-                        <div className="tp-product-details-desc-content">
-                          <p>{Product_Description}</p>
-                        </div>
-                      </div>
-                    </div>
+              <th colSpan={2} style={{ textAlign: "left", paddingTop: "1rem" }}>
+                Metal
+              </th>
+              <tr>
+                <td>Type</td>
+                <td>{metalType}</td>
+              </tr>
+              <tr>
+                <td>Color</td>
+                <td>
+                  <div className="tp-product-details-variation-list">
+                    <button
+                      type="button"
+                      className="color tp-color-variation-btn"
+                    >
+                      <span
+                        data-bg-color={goldColor}
+                        style={{
+                          backgroundColor:
+                            goldColor === "yellow"
+                              ? "#BBA14F"
+                              : goldColor === "rose"
+                              ? "#B76E79"
+                              : "#C0C0C0",
+                        }}
+                      ></span>
+                      {
+                        <span className="tp-color-variation-tootltip">
+                          {goldColor.split("")[0].toUpperCase() +
+                            goldColor.slice(1)}
+                        </span>
+                      }
+                    </button>
                   </div>
-                </div>
-              </div>
-            </div> */}
-          </div>
-          {/* addInfo */}
-          <div
-            className="tab-pane fade show active"
-            id="nav-additional"
-            role="tabpanel"
-            aria-labelledby="nav-additional-tab"
-            tabIndex="-1"
-          >
-            <div className="tp-product-details-additional-info ">
-              <div className="row">
-                <div className="col-xl-10">
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>Gross Weight</td>
-                        <td>{grossWeight}</td>
-                      </tr>
-                      <tr>
-                        <td>Gold Purity</td>
-                        <td>{goldPurity}</td>
-                      </tr>
-                      <tr>
-                        <td>No of Diamonds</td>
-                        <td>{noDiamonds}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* review */}
-          <div
-            className="tab-pane fade"
-            id="nav-review"
-            role="tabpanel"
-            aria-labelledby="nav-review-tab"
-            tabIndex="-1"
-          >
-            <div className="tp-product-details-review-wrapper pt-60">
-              <div className="row">
-                <div className="col-lg-6">
-                  <div className="tp-product-details-review-statics">
-                    {/* reviews */}
-                    {/* <div className="tp-product-details-review-list pr-110"> */}
-                    {/* <h3 className="tp-product-details-review-title">
-                        Rating & Review
-                      </h3>
-                      {reviews.length === 0 && (
-                        <h3 className="tp-product-details-review-title">
-                          There are no reviews yet.
-                        </h3>
-                      )} */}
-                    {/* {reviews.length > 0 &&
-                        reviews.map((item) => (
-                          <ReviewItem key={item._id} review={item} />
-                        ))} */}
-                    {/* </div> */}
-                  </div>
-                </div>
-                <div className="col-lg-6">
-                  <div className="tp-product-details-review-form">
-                    {/* <h3 className="tp-product-details-review-form-title">
-                      Review this product
-                    </h3>
-                    <p>
-                      Your email address will not be published. Required fields
-                      are marked *
-                    </p> */}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Gross Weight</td>
+                <td>{grossWeight} g</td>
+              </tr>
+              <tr>
+                <td>Purity</td>
+                <td>{goldPurity}</td>
+              </tr>
+
+              {/* Diamond Section */}
+
+              <th colSpan={2} style={{ textAlign: "left", paddingTop: "1rem" }}>
+                Stone
+              </th>
+
+              <tr>
+                <td>Clarity</td>
+                <td>{diamondClarity}</td>
+              </tr>
+              <tr>
+                <td>Color</td>
+                <td>{diamondColor}</td>
+              </tr>
+              <tr>
+                <td>No of Diamonds</td>
+                <td>{noDiamonds}</td>
+              </tr>
+              <tr>
+                <td>Total Weight</td>
+                <td>{diamondWeight} CT</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

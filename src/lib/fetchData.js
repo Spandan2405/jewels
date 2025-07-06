@@ -30,9 +30,13 @@ export async function getProductById(productID) {
         productID,
         name,
         "productType": productType->subcategory, // Fix: 'subcategory' instead of 'name'
+        metalType,
         goldPurity,
         goldColor,
         grossWeight,
+         diamondClarity,
+  diamondColor,
+  diamondWeight,
         noDiamonds,
         sourceLink,
         productVideo,

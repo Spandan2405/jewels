@@ -8,7 +8,7 @@ const menu_data = [
     id: 1,
     homes: true,
     title: "Home",
-    link: "/",
+    link: "/shop",
   },
   {
     id: 2,
@@ -20,46 +20,46 @@ const menu_data = [
         title: "Earings",
         link: "/shop?category=earings",
         mega_menus: [
-          { title: "Studs", link: "shop?subcategory=studs" },
-          { title: "Daily Wear", link: "shop?subcategory=daily-wear" },
-          { title: "Drops", link: "shop?subcategory=drops" },
+          { title: "Studs", link: "/shop?subcategory=studs" },
+          { title: "Daily Wear", link: "/shop?subcategory=daily-wear" },
+          { title: "Drops", link: "/shop?subcategory=drops" },
         ],
       },
       {
-        title: "Pendants",
+        title: "Pendants & Necklaces",
         link: "/shop?category=pendants",
         mega_menus: [
-          { title: "Mangalsutra", link: "shop?subcategory=mangalsutra" },
+          { title: "Mangalsutra", link: "/shop?subcategory=mangalsutra" },
           {
             title: "Occasional Wear",
-            link: "shop?subcategory=occasional-wear",
+            link: "/shop?subcategory=occasional-wear",
           },
-          { title: "Everyday Wear", link: "shop?subcategory=everyday-wear" },
+          { title: "Everyday Wear", link: "/shop?subcategory=everyday-wear" },
         ],
       },
       {
         title: "Rings",
-        link: "shop?category=rings",
+        link: "/shop?category=rings",
         mega_menus: [
           {
             title: "Engagement Rings",
-            link: "shop?subcategory=engagement-rings",
+            link: "/shop?subcategory=engagement-rings",
           },
-          { title: "Casual Rings", link: "shop?subcategory=casual-rings" },
-          { title: "Couple Rings", link: "shop?subcategory=couples-rings" },
+          { title: "Casual Rings", link: "/shop?subcategory=casual-rings" },
+          { title: "Couple Rings", link: "/shop?subcategory=couples-rings" },
         ],
       },
       {
         title: "Bangles & Bracelets",
-        link: "shop?category=bracelets",
+        link: "/shop?category=bracelets",
         mega_menus: [
           {
             title: "Tennis Bracelets",
-            link: "shop?subcategory=tennis-bracelet",
+            link: "/shop?subcategory=tennis-bracelet",
           },
           {
             title: "Diamond Bangles",
-            link: "shop?subcategory=diamond-bangles",
+            link: "/shop?subcategory=diamond-bangles",
           },
         ],
       },
@@ -91,7 +91,7 @@ export const mobile_menu = [
     id: 1,
     homes: false,
     title: "Home",
-    link: "/",
+    link: "/shop",
   },
   {
     id: 2,
@@ -99,11 +99,11 @@ export const mobile_menu = [
     title: "Products",
     link: "/shop",
     sub_menus: [
-      { title: "Earings", link: "/shop?category=earings" },
-      { title: "Pendants", link: "/shop?category=pendants" },
-      { title: "Rings", link: "/shop?category=rings" },
-      { title: "Bangles", link: "/shop?category=bangles" },
-      { title: "Bracelets", link: "/shop?category=bracelets" },
+      { title: "Earings", link: "shop?category=earings" },
+      { title: "Pendants & Necklaces", link: "shop?category=pendants" },
+      { title: "Rings", link: "shop?category=rings" },
+      { title: "Bangles", link: "shop?category=bangles" },
+      { title: "Bracelets", link: "shop?category=bracelets" },
     ],
   },
   {

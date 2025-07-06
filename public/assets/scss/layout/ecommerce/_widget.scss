@@ -229,6 +229,13 @@
               color: var(--tp-common-white);
             }
           }
+          &.active {
+            & .tp-shop-widget-checkbox-circle-number {
+              background-color: var(--tp-theme-primary);
+              border-color: var(--tp-theme-primary);
+              color: var(--tp-common-white);
+            }
+          }
         }
       }
     }

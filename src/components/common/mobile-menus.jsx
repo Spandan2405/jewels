@@ -55,7 +55,7 @@ const MobileMenus = ({ setIsCanvasOpen }) => {
                 </ul>
               </li>
             ) : (
-              <li key={menu.id}>
+              <li key={menu.id} onClick={() => setIsCanvasOpen()}>
                 <Link href={menu.link}>{menu.title}</Link>
               </li>
             )}
