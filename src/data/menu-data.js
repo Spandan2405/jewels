@@ -26,7 +26,7 @@ const menu_data = [
         ],
       },
       {
-        title: "Pendants & Necklaces",
+        title: "Pendants",
         link: "/shop?category=pendants",
         mega_menus: [
           { title: "Mangalsutra", link: "/shop?subcategory=mangalsutra" },
@@ -35,6 +35,16 @@ const menu_data = [
             link: "/shop?subcategory=occasional-wear",
           },
           { title: "Everyday Wear", link: "/shop?subcategory=everyday-wear" },
+        ],
+      },
+      {
+        title: "Necklaces",
+        link: "/shop?category=necklaces",
+        mega_menus: [
+          {
+            title: "Festive Wear",
+            link: "/shop?subcategory=festive-wear",
+          },
         ],
       },
       {
@@ -47,6 +57,7 @@ const menu_data = [
           },
           { title: "Casual Rings", link: "/shop?subcategory=casual-rings" },
           { title: "Couple Rings", link: "/shop?subcategory=couples-rings" },
+          { title: "Bands", link: "/shop?subcategory=bands" },
         ],
       },
       {

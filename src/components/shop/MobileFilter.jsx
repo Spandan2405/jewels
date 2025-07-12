@@ -129,7 +129,14 @@ const MobileFilter = ({ otherProps, setCurrPage }) => {
             </div>
             <div className="filter-group">
               <h5>Category</h5>
-              {["Pendants", "Rings", "Bangles", "Earings"].map((cat) => (
+              {[
+                "Pendants",
+                "Necklaces",
+                "Rings",
+                "Bangles",
+                "Earings",
+                "Bracelets",
+              ].map((cat) => (
                 <button onClick={() => handleCategoryRoute(cat)}>
                   <span>
                     <i class="fa-solid fa-check"></i>
