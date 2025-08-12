@@ -9,7 +9,23 @@ export async function getSubCategories() {
 }
 
 export async function getProducts() {
-  const query = `*[_type == "product"]{
+  const query = `*[_type == "product" && isCatalogue != true]{
+  productID,
+  name,
+  "category": category->category,
+  "productType": productType->subcategory, 
+  img,
+  goldColor,
+  createdAt,
+  productDescription
+}`;
+
+  const products = await client.fetch(query);
+
+  return products;
+}
+export async function getCatalogueProducts() {
+  const query = `*[_type == "product" && isCatalogue == true]{
   productID,
   name,
   "category": category->category,
