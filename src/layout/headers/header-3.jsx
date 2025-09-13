@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import logos from "../../../public/assets/img/logo/logos.svg";
+// import logos from "../../../public/assets/img/logo/logos.svg";
+import logos from "../../../public/assets/img/logo/logo.svg";
 import Bluebar from "./header-com/Bluebar";
 import { Menu } from "@/svg";
 import Menus from "./header-com/menus";

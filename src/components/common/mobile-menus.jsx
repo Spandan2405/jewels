@@ -1,68 +1,125 @@
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { mobile_menu } from "@/data/menu-data";
 
 const MobileMenus = ({ setIsCanvasOpen }) => {
-  const [isActiveMenu, setIsActiveMenu] = useState("");
+  const [activeMenu, setActiveMenu] = useState(""); // main menus
+  const [activeSubMenu, setActiveSubMenu] = useState(""); // sub/mega menus
 
-  // handleOpenSubMenu
-  const handleOpenSubMenu = (title) => {
-    if (title === isActiveMenu) {
-      setIsActiveMenu("");
-    } else {
-      setIsActiveMenu(title);
-    }
+  // Toggle parent menu
+  const handleToggleMenu = (menuTitle) => {
+    setActiveMenu(activeMenu === menuTitle ? "" : menuTitle);
+    setActiveSubMenu(""); // reset submenus when parent closes
   };
+
+  // Toggle sub/mega menu
+  const handleToggleSubMenu = (subTitle) => {
+    setActiveSubMenu(activeSubMenu === subTitle ? "" : subTitle);
+  };
+
   return (
-    <>
-      <nav className="tp-main-menu-content">
-        {mobile_menu.map((menu, i) => (
-          <ul key={i}>
-            {menu.sub_menu ? (
-              <li
-                key={menu.id}
-                className={`has-dropdown ${
-                  isActiveMenu === menu.title ? "dropdown-opened" : ""
-                }`}
-              >
+    <nav className="tp-main-menu-content tp-main-menu-mobile">
+      <ul>
+        {mobile_menu.map((menu) => (
+          <li
+            key={menu.id}
+            className={`has-dropdown ${
+              activeMenu === menu.title ? "dropdown-opened" : ""
+            }`}
+          >
+            {menu.sub_menus ? (
+              <>
+                {/* Parent menu */}
                 <a
-                  className={`${isActiveMenu === menu.title ? "expanded" : ""}`}
-                  onClick={() => handleOpenSubMenu(menu.title)}
+                  className={`${activeMenu === menu.title ? "expanded" : ""}`}
+                  onClick={() => handleToggleMenu(menu.title)}
                 >
                   {menu.title}
                   <button
-                    onClick={() => handleOpenSubMenu(menu.title)}
+                    onClick={() => handleToggleMenu(menu.title)}
                     className={`dropdown-toggle-btn ${
-                      isActiveMenu === menu.title ? "dropdown-opened" : ""
+                      activeMenu === menu.title ? "dropdown-opened" : ""
                     }`}
                   >
-                    <i class="fa fa-angle-down" aria-hidden="true" />
+                    <i className="fa fa-angle-down" aria-hidden="true" />
                   </button>
                 </a>
+
+                {/* Submenu */}
                 <ul
                   className={`tp-submenu ${
-                    isActiveMenu === menu.title ? "active" : ""
+                    activeMenu === menu.title ? "active" : ""
                   }`}
                 >
-                  {menu.sub_menus.map((b, i) => (
-                    <li key={i}>
-                      <Link href={b.link} onClick={() => setIsCanvasOpen()}>
-                        {b.title}
-                      </Link>
+                  {menu.sub_menus.map((sub, i) => (
+                    <li
+                      key={i}
+                      className={`has-dropdown ${
+                        activeSubMenu === sub.title ? "dropdown-opened" : ""
+                      }`}
+                    >
+                      {sub.mega_menus ? (
+                        <>
+                          {/* Submenu with mega menu */}
+
+                          <div
+                            className={`${
+                              activeSubMenu === sub.title ? "expanded" : ""
+                            }`}
+                          >
+                            <a href={sub.link} style={{ border: "none" }}>
+                              {sub.title}
+                            </a>
+                            <button
+                              onClick={() => handleToggleSubMenu(sub.title)}
+                              className={`dropdown-toggle-btn ${
+                                activeSubMenu === sub.title
+                                  ? "dropdown-opened"
+                                  : ""
+                              }`}
+                            >
+                              <i
+                                className="fa fa-angle-down"
+                                aria-hidden="true"
+                              />
+                            </button>
+                          </div>
+
+                          <ul
+                            className={`tp-mega-menu ${
+                              activeSubMenu === sub.title ? "active" : ""
+                            }`}
+                          >
+                            {sub.mega_menus.map((mega, j) => (
+                              <li key={j}>
+                                <Link
+                                  href={mega.link}
+                                  onClick={() => setIsCanvasOpen()}
+                                >
+                                  {mega.title}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </>
+                      ) : (
+                        <Link href={sub.link} onClick={() => setIsCanvasOpen()}>
+                          {sub.title}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
-              </li>
+              </>
             ) : (
-              <li key={menu.id} onClick={() => setIsCanvasOpen()}>
-                <Link href={menu.link}>{menu.title}</Link>
-              </li>
+              <Link href={menu.link} onClick={() => setIsCanvasOpen()}>
+                {menu.title}
+              </Link>
             )}
-          </ul>
+          </li>
         ))}
-      </nav>
-    </>
+      </ul>
+    </nav>
   );
 };
 

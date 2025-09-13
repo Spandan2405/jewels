@@ -275,8 +275,10 @@
       & .logo {
         & img {
           @media #{$sm , $xs} {
-            height: 45px;
-            width: 120px;
+            // height: 45px;
+            // width: 120px;
+            height: 30px;
+            width: 105px;
             object-fit: cover;
           }
         }
