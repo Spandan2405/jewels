@@ -2,8 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 // internal
-// import logos from "@assets/img/logo/logos.svg";
-import logos from "@assets/img/logo/logo.svg";
+import logos from "@assets/img/logo/logos.svg";
 import social_data from "@/data/social-data";
 
 const Footer = ({

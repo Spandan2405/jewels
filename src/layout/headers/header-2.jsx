@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 // internal
 import Menus from "./header-com/menus";
-// import logos from "@assets/img/logo/logos.svg";
-import logos from "@assets/img/logo/logo.svg";
+import logos from "@assets/img/logo/logos.svg";
 import useSticky from "@/hooks/use-sticky";
 import { Menu } from "@/svg";
 import OffCanvas from "@/components/common/off-canvas";
@@ -38,8 +37,8 @@ const HeaderTwo = ({ style_2 = false }) => {
                           alt="logo"
                           priority
                           className="object-cover"
-                          // height={55}
-                          // width={150}
+                          height={55}
+                          width={150}
                         />
                       </Link>
                     </div>
