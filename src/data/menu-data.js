@@ -82,7 +82,7 @@ const menu_data = [
     title: "About",
     link: "/blog",
     sub_menus: [
-      { title: "Our Work", link: "/test" },
+      { title: "Our Work", link: "/gallery" },
       { title: "Testimonials", link: "/test" },
     ],
   },
@@ -182,7 +182,7 @@ export const mobile_menu = [
     title: "About",
     link: "/blog",
     sub_menus: [
-      { title: "Our Work", link: "/test" },
+      { title: "Our Work", link: "/gallery" },
       { title: "Testimonials", link: "/test" },
     ],
   },

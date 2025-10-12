@@ -65,3 +65,17 @@ export async function getProductById(productID) {
   const product = await client.fetch(query, { productID }); // Use parameterized query
   return product;
 }
+
+export async function getGalleryProducts() {
+  const galleryQuery = `*[_type == "gallery"][]{
+    tag,
+    media[]{
+      type,
+      "imageUrl": image.asset->url,
+      videoUrl
+    }
+  }`;
+  const data = await client.fetch(galleryQuery);
+
+  return data;
+}
