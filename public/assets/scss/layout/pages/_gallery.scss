@@ -1,0 +1,7 @@
+@use "../../utils" as *;
+
+.masonry-grid {
+  .masonry-item {
+    margin-bottom: 1rem; // fallback if Masonry fails
+  }
+}
