@@ -15,6 +15,16 @@ import ShopLoader from "@/components/loader/shop/shop-loader";
 import ErrorMsg from "@/components/common/error-msg";
 import { getGalleryProducts } from "@/lib/fetchData";
 
+// Fisher-Yates Shuffle Function
+const shuffleArray = (array) => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
+
 const GallerySection = () => {
   const [mediaItems, setMediaItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -23,15 +33,17 @@ const GallerySection = () => {
 
   // ✅ Initialize AOS
   useEffect(() => {
-    AOS.init({ duration: 700, easing: "ease-in-out", once: true });
+    AOS.init({ duration: 500, easing: "ease-in-out", once: true });
   }, []);
 
-  // ✅ Fetch data
+  // ✅ Fetch and shuffle data
   useEffect(() => {
     (async () => {
       try {
         const data = await getGalleryProducts();
-        setMediaItems(data);
+        // Shuffle the fetched data
+        const shuffledData = shuffleArray(data);
+        setMediaItems(shuffledData);
       } catch (error) {
         console.error("Error fetching gallery:", error);
         setIsError(true);
@@ -53,16 +65,14 @@ const GallerySection = () => {
         itemSelector: ".masonry-item",
         percentPosition: true,
         horizontalOrder: true,
+        // gutter: 20,
       });
-      // ✅ hide loader once Masonry initialized
       setIsLoading(false);
     };
 
-    // Wait for all images
     const imgLoad = imagesLoaded(grid);
     imgLoad.on("always", initMasonry);
 
-    // ✅ Wait for videos too
     const videos = grid.querySelectorAll("video");
     let loadedVideos = 0;
 
