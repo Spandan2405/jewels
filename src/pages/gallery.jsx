@@ -130,8 +130,7 @@ const GallerySection = () => {
               Gallery
             </h2>
             <p className="text-muted mb-0 px-3 px-md-0">
-              A glimpse of our latest designs, handcrafted jewelry & model
-              shoots.
+              A glimpse of our latest designs & handcrafted jewellery
             </p>
           </div>
 
