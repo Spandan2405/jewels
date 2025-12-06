@@ -21,7 +21,7 @@ const HeaderThree = () => {
           }`}
         >
           <div className="col-xl-12 text-center">
-            <div
+            {/* <div
               className="tp-header-info"
               style={{
                 backgroundColor: "#012f49",
@@ -29,7 +29,7 @@ const HeaderThree = () => {
               }}
             >
               <Bluebar />
-            </div>
+            </div> */}
           </div>
           <div className="tp-header-bottom-3 pl-35 pr-35">
             <div className="container-fluid">

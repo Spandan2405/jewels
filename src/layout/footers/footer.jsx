@@ -39,9 +39,12 @@ const Footer = ({
                     </div>
                     <div className="tp-footer-social d-xl-flex d-sm-block">
                       {social_data.map((s) => (
-                        <div className="tp-footer-social-item d-flex  align-items-center ">
+                        <div
+                          key={s.id}
+                          className="tp-footer-social-item d-flex  align-items-center "
+                        >
                           {s.svg}
-                          <a href={s.link} key={s.id} target="_blank">
+                          <a href={s.link} target="_blank">
                             <span>{s.desc}</span>
                           </a>
                         </div>
