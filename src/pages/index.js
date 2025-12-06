@@ -10,14 +10,13 @@ import BeautyBanner from "@/components/banner/beauty-banner";
 import ErrorPage from "./404";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import HeroSection from "@/components/heroSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import AboutSection from "@/components/AboutSection";
 import CallToActionBanner from "@/components/CallToActionBanner";
 import ProductsCarousel from "@/components/ProductsCarousel";
-import Testimonials from "@/components/testimonial";
 import GallerySection from "@/components/GallerySection";
-import App from "@/components/FAQs";
+import HeroSection from "@/components/HeroSection";
+import Testimonials from "@/components/Testimonial";
 
 export default function Home() {
   const router = useRouter();
@@ -37,7 +36,6 @@ export default function Home() {
       <ProductsCarousel />
       <Testimonials />
       <GallerySection />
-      {/* <App /> */}
       <Footer />
     </Wrapper>
   );
