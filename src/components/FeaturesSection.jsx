@@ -33,7 +33,7 @@ const FeaturesSection = () => {
         <div
           className="mx-auto py-4 p-lg-5"
           style={{
-            background: "linear-gradient(90deg, #f2c2ee 15%, #d66fee 100%)",
+            background: "#f2c2ee",
             borderRadius: "22px",
             boxShadow: "0 20px 60px rgba(0,0,0,0.1)",
             maxWidth: "1300px",

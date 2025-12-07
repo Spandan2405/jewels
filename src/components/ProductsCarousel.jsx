@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { getGalleryProducts } from "@/lib/fetchData";
+import { ArrowNext, ArrowNextSm, ArrowPrevSm, ArrowRight } from "@/svg";
+import ArrowLeft from "@/svg/arrow-left";
 
 // Shuffle Function
 const shuffleArray = (array) => {
@@ -81,12 +83,12 @@ const ProductsSlider = () => {
 
           <Link
             href="/shop"
-            className="btn btn-outline-light px-4 py-2 fw-semibold"
+            className="btn btn-outline-light p-2 px-md-4 py-md-2 fw-semibold gap-2 d-flex align-items-center"
             style={{
               borderColor: "#6B3FA0",
               color: "#6B3FA0",
               borderRadius: "12px",
-              fontSize: "1.1rem",
+              fontSize: "1rem",
               whiteSpace: "nowrap",
             }}
           >
@@ -94,10 +96,10 @@ const ProductsSlider = () => {
             <svg
               width="20"
               height="20"
-              className="ms-2"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
+              strokeWidth="2.5"
             >
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
@@ -141,8 +143,20 @@ const ProductsSlider = () => {
         </div>
 
         {/* Mobile Swipe Hint */}
-        <div className="text-center d-md-none mt-2">
-          <small className="text-muted">← Swipe to explore →</small>
+        <div
+          className="d-flex justify-content-between align-items-center d-md-none mt-2"
+          style={{ width: "100%" }}
+        >
+          <ArrowPrevSm />
+
+          <small
+            className="text-muted text-center"
+            style={{ flexGrow: 1, fontSize: "0.95rem" }}
+          >
+            Swipe to explore
+          </small>
+
+          <ArrowNextSm />
         </div>
       </div>
 

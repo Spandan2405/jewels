@@ -82,12 +82,18 @@ const menu_data = [
     title: "About",
     link: "/blog",
     sub_menus: [
-      { title: "Our Work", link: "/gallery" },
+      // { title: "Our Work", link: "/gallery" },
       { title: "Testimonials", link: "/test" },
     ],
   },
   {
     id: 4,
+    single_link: true,
+    title: "Gallery",
+    link: "/gallery",
+  },
+  {
+    id: 5,
     single_link: true,
     title: "Contact",
     link: "/contact",
@@ -182,12 +188,18 @@ export const mobile_menu = [
     title: "About",
     link: "/blog",
     sub_menus: [
-      { title: "Our Work", link: "/gallery" },
+      // { title: "Our Work", link: "/gallery" },
       { title: "Testimonials", link: "/test" },
     ],
   },
   {
     id: 5,
+    single_link: true,
+    title: "Gallery",
+    link: "/gallery",
+  },
+  {
+    id: 6,
     single_link: true,
     title: "Contact",
     link: "/contact",

@@ -54,25 +54,35 @@ const HeroSection = () => {
             </p>
 
             {/* Buttons */}
-            <div className="d-flex flex-wrap gap-3">
+            <div
+              className="d-flex flex-column flex-sm-row gap-3"
+              style={{ rowGap: "14px" }}
+            >
               {/* Button 1 */}
               <Link
                 href="/shop"
-                className="btn btn-lg fw-semibold px-md-5 py-md-3 text-white"
+                className="btn fw-semibold text-white"
                 style={{
-                  minWidth: "210px",
-                  borderRadius: "16px",
+                  width: "100%", // full-width on mobile
+                  maxWidth: "clamp(180px, 40vw, 240px)",
+                  padding: "clamp(10px, 3vw, 15px) clamp(26px, 4vw, 42px)",
+                  borderRadius: "18px",
                   background: "linear-gradient(135deg, #70447B 0%, #000 100%)",
-                  transition: "all 0.6s ease",
+                  fontSize: "clamp(0.95rem, 2vw, 1.15rem)",
+                  letterSpacing: "0.4px",
+                  transition: "all 0.4s ease",
+                  whiteSpace: "nowrap",
                 }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.background =
-                    "linear-gradient(135deg, #000 0%, #70447B 100%)")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.background =
-                    "linear-gradient(135deg, #70447B 0%, #000 100%)")
-                }
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background =
+                    "linear-gradient(135deg, #000 0%, #70447B 100%)";
+                  e.currentTarget.style.transform = "translateY(-3px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background =
+                    "linear-gradient(135deg, #70447B 0%, #000 100%)";
+                  e.currentTarget.style.transform = "translateY(0)";
+                }}
               >
                 View Products
               </Link>
@@ -80,20 +90,28 @@ const HeroSection = () => {
               {/* Button 2 */}
               <Link
                 href="/gallery"
-                className="btn btn-lg fw-semibold px-md-5 py-md-3 text-white rounded-pill"
+                className="btn fw-semibold text-white"
                 style={{
-                  minWidth: "210px",
+                  width: "100%", // full-width on mobile
+                  maxWidth: "clamp(180px, 40vw, 240px)",
+                  padding: "clamp(10px, 3vw, 15px) clamp(26px, 4vw, 42px)",
+                  borderRadius: "18px",
                   background: "linear-gradient(135deg, #153665 0%, #000 100%)",
-                  transition: "all 0.6s ease",
+                  fontSize: "clamp(0.95rem, 2vw, 1.15rem)",
+                  letterSpacing: "0.4px",
+                  transition: "all 0.4s ease",
+                  whiteSpace: "nowrap",
                 }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.background =
-                    "linear-gradient(135deg, #000 0%, #153665 100%)")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.background =
-                    "linear-gradient(135deg, #153665 0%, #000 100%)")
-                }
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background =
+                    "linear-gradient(135deg, #000 0%, #153665 100%)";
+                  e.currentTarget.style.transform = "translateY(-3px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background =
+                    "linear-gradient(135deg, #153665 0%, #000 100%)";
+                  e.currentTarget.style.transform = "translateY(0)";
+                }}
               >
                 View Gallery
               </Link>

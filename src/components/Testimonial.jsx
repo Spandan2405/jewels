@@ -35,7 +35,7 @@ const Testimonials = () => {
           className="fw-bold mb-4"
           style={{
             fontFamily: "Cormorant, serif",
-            fontSize: "clamp(3rem, 7vw, 6rem)",
+            fontSize: "clamp(2.5rem, 7vw, 6rem)",
             letterSpacing: "-1px",
             color: "#000",
           }}

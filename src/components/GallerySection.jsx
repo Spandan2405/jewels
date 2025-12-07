@@ -81,7 +81,7 @@ const GallerySection = () => {
             className="display-2 fw-bold m-0"
             style={{
               fontFamily: "'Cormorant', serif",
-              fontSize: "clamp(3rem, 7vw, 5.5rem)",
+              fontSize: "clamp(2.5rem, 7vw, 5.5rem)",
               letterSpacing: "-2px",
               lineHeight: "1",
             }}
@@ -90,13 +90,13 @@ const GallerySection = () => {
           </h2>
 
           <Link
-            href="/gallery"
-            className="btn btn-outline-light px-4 py-2 fw-semibold"
+            href="/shop"
+            className="btn btn-outline-light p-2 px-md-4 py-md-2 fw-semibold gap-2 d-flex align-items-center"
             style={{
               borderColor: "#6B3FA0",
               color: "#6B3FA0",
               borderRadius: "12px",
-              fontSize: "1.1rem",
+              fontSize: "1rem",
               whiteSpace: "nowrap",
             }}
           >
@@ -127,6 +127,7 @@ const GallerySection = () => {
             {images.map((item, i) => {
               const media = item.media?.[0];
               if (!media) return null;
+              if (!media.imageUrl && !media.videoUrl) return null;
 
               return (
                 <div
