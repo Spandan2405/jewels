@@ -26,7 +26,7 @@ const HeroSection = () => {
             <h1
               className="fw-normal mb-4"
               style={{
-                fontFamily: "Cormorant, serif",
+                fontFamily: "Wisteria,sans-serif",
                 color: "#000",
                 fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
                 letterSpacing: "-1px",

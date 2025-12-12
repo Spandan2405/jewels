@@ -32,12 +32,13 @@ const Testimonials = () => {
       <div className="container">
         {/* SECTION TITLE */}
         <h2
-          className="fw-bold mb-4"
+          className="fw-normal   mb-4"
           style={{
-            fontFamily: "Cormorant, serif",
-            fontSize: "clamp(2.5rem, 7vw, 6rem)",
-            letterSpacing: "-1px",
+            fontFamily: "Wisteria,sans-serif",
             color: "#000",
+            fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
+            letterSpacing: "-1px",
+            lineHeight: "1.1",
           }}
         >
           Clients Testimonials
@@ -48,10 +49,10 @@ const Testimonials = () => {
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="d-flex align-items-center bg-white shadow-sm px-4 px-md-5 py-2"
+              className="d-flex align-items-center bg-white shadow-sm px-4 py-3"
               style={{
-                borderRadius: "50px",
-                minHeight: "150px",
+                borderRadius: "100px",
+                minHeight: "125px",
                 border: "1px solid #f1f1f1",
               }}
             >

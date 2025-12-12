@@ -12,7 +12,7 @@
       }
 
       .main-menu.menu-style-3 ul li.has-dropdown:hover > a::after {
-        color: var(--tp-theme-brown);
+        color: #662e73;
       }
       .main-menu.menu-style-3 > nav > ul > li > a {
         color: var(--tp-common-black);
@@ -22,10 +22,10 @@
         color: var(--tp-common-black);
       }
       .main-menu.menu-style-3.menu-style-4 ul li:hover > a::after {
-        color: var(--tp-theme-brown);
+        color: #662e73;
       }
       .main-menu.menu-style-3 > nav > ul > li:hover > a {
-        color: var(--tp-theme-brown);
+        color: #662e73;
       }
 
       & .tp-header-action-item .tp-header-action-btn {
@@ -94,6 +94,7 @@
 
   &-bottom-3 {
     border-bottom: 1px solid rgba($color: $white, $alpha: 0.14);
+    box-shadow: 0 2px 4px rgba($color: $black, $alpha: 0.3);
     @media #{$xl, $lg} {
       padding-left: 30px;
       padding-right: 30px;

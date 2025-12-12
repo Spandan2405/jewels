@@ -9,7 +9,7 @@ const AboutSection = () => {
         {/* ===== ABOUT US + IMAGE ===== */}
         <div className="row align-items-center md:g-5 md:mb-4">
           <div className="col-lg-6">
-            <h2 className="display-1 fw-bold" style={headingStyle}>
+            <h2 className="display-1" style={headingStyle}>
               About Us
             </h2>
             <p style={textStyle}>
@@ -50,7 +50,7 @@ const AboutSection = () => {
         {/* ===== VISION & MISSION ===== */}
         <div className="row g-lg-7">
           <div className="col-lg-6">
-            <h3 className="display-1 fw-bold" style={headingStyle}>
+            <h3 className="display-1" style={headingStyle}>
               Our Vision
             </h3>
             <p style={textStyle}>
@@ -61,14 +61,7 @@ const AboutSection = () => {
           </div>
 
           <div className="col-lg-6">
-            <h3
-              className="display-1 fw-bold"
-              style={{
-                fontFamily: "Cormorant, serif",
-                letterSpacing: "-1px",
-                color: "#111",
-              }}
-            >
+            <h3 className="display-1" style={headingStyle}>
               Our Mission
             </h3>
             <p style={textStyle}>
@@ -84,10 +77,11 @@ const AboutSection = () => {
 };
 
 const headingStyle = {
-  fontFamily: "Cormorant, serif",
-  // fontSize: "clamp(2rem, 5vw, 3.5rem)",
-  color: "#111",
-  letterSpacing: "-1.5px",
+  fontFamily: "Wisteria,sans-serif",
+  color: "#000",
+  fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
+  letterSpacing: "-1px",
+  lineHeight: "1.1",
 };
 
 const textStyle = {

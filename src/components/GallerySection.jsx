@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { getGalleryProducts } from "@/lib/fetchData";
 import imagesLoaded from "imagesloaded";
@@ -78,12 +77,13 @@ const GallerySection = () => {
         {/* Header */}
         <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
           <h2
-            className="display-2 fw-bold m-0"
+            className="display-2 fw-normal m-0"
             style={{
-              fontFamily: "'Cormorant', serif",
-              fontSize: "clamp(2.5rem, 7vw, 5.5rem)",
-              letterSpacing: "-2px",
-              lineHeight: "1",
+              fontFamily: "Wisteria,sans-serif",
+              color: "#000",
+              fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
+              letterSpacing: "-1px",
+              lineHeight: "1.1",
             }}
           >
             Our Gallery

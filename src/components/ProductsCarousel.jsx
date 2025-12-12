@@ -71,11 +71,13 @@ const ProductsSlider = () => {
         {/* Header */}
         <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
           <h2
-            className="fw-bold m-0"
+            className="fw-normal m-0"
             style={{
-              fontFamily: "Cormorant, serif",
-              fontSize: "clamp(2.5rem, 6vw, 5rem)",
+              fontFamily: "Wisteria,sans-serif",
+              color: "#000",
+              fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
               letterSpacing: "-1px",
+              lineHeight: "1.1",
             }}
           >
             Our Products
