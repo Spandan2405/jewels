@@ -11,6 +11,9 @@ const OffCanvas = ({
   isOffCanvasOpen,
   setIsCanvasOpen,
   categoryType = "electronics",
+  menuItems,
+  cta,
+  className = "",
 }) => {
   const [isCategoryActive, setIsCategoryActive] = useState(false);
   const [isCurrencyActive, setIsCurrencyActive] = useState(false);
@@ -29,7 +32,7 @@ const OffCanvas = ({
   return (
     <>
       <div
-        className={`offcanvas__area offcanvas__radius ${
+        className={`offcanvas__area offcanvas__radius ${className} ${
           isOffCanvasOpen ? "offcanvas-opened" : ""
         }`}
       >
@@ -44,11 +47,11 @@ const OffCanvas = ({
           </div>
           <div className="offcanvas__content">
             <div className="offcanvas__top mb-70 d-flex justify-content-between align-items-center">
-              {/* <div className="offcanvas__logo logo">
+              <div className="offcanvas__logo logo">
                 <Link href="/">
-                  <Image src={logos} alt="logo" />
+                  <Image src={logos} alt="RareStonz" width={180} height={54} />
                 </Link>
-              </div> */}
+              </div>
             </div>
             <div className="offcanvas__category pb-40">
               <div className="tp-category-mobile-menu">
@@ -60,8 +63,18 @@ const OffCanvas = ({
               </div>
             </div>
             <div className="tp-main-menu-mobile fix d-lg-none mb-40">
-              <MobileMenus setIsCanvasOpen={setIsCanvasOpen} />
+              <MobileMenus
+                setIsCanvasOpen={setIsCanvasOpen}
+                menuItems={menuItems}
+              />
             </div>
+            {cta ? (
+              <div className="offcanvas__btn rs-offcanvas__cta d-lg-none">
+                <Link href={cta.link} className="rs-site-header__cta w-100">
+                  {cta.label}
+                </Link>
+              </div>
+            ) : null}
 
             <div className="offcanvas__contact align-items-center d-none">
               <div className="offcanvas__contact-icon mr-20">

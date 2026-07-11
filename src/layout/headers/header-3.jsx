@@ -2,78 +2,78 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import logos from "../../../public/assets/img/logo/logos.svg";
-import Bluebar from "./header-com/Bluebar";
 import { Menu } from "@/svg";
-import Menus from "./header-com/menus";
 import useSticky from "@/hooks/use-sticky";
 import OffCanvas from "@/components/common/off-canvas";
+import homeHeaderMenu, { homeHeaderCta } from "@/data/home-header-menu";
 
 const HeaderThree = () => {
   const [isOffCanvasOpen, setIsCanvasOpen] = useState(false);
   const { sticky } = useSticky();
+
   return (
     <>
-      <header>
+      <header className="rs-site-header">
         <div
           id="header-sticky"
-          className={`tp-header-area tp-header-style-transparent-white tp-header-transparent tp-header-sticky has-dark-logo tp-header-height ${
+          className={`rs-site-header__bar ${
             sticky ? "header-sticky" : ""
           }`}
         >
-          <div className="col-xl-12 text-center">
-            {/* <div
-              className="tp-header-info"
-              style={{
-                backgroundColor: "#012f49",
-                color: "white",
-              }}
-            >
-              <Bluebar />
-            </div> */}
-          </div>
-          <div className="tp-header-bottom-3 pl-35 pr-35">
-            <div className="container-fluid">
-              <div className="row align-items-center">
-                <div className="col-xl-2 col-lg-2 col-6">
-                  <div className="logo">
-                    <Link href="/">
-                      <Image
-                        className="logo-light"
-                        src={logos}
-                        alt="logo"
-                        width={150}
-                        height={55}
-                      />
-                      <Image
-                        className="logo-dark"
-                        src={logos}
-                        alt="logo"
-                        width={150}
-                        height={55}
-                      />
-                    </Link>
-                  </div>
-                </div>
-                <div className="col-xl-8 col-lg-8 d-none d-lg-block">
-                  <div className="main-menu menu-style-3 p-relative d-flex align-items-center justify-content-center">
-                    <nav className="tp-main-menu-content">
-                      <Menus />
-                    </nav>
-                  </div>
-                </div>
-                <div className="col-xl-2 col-lg-2 col-6">
-                  <div className="tp-header-action d-flex align-items-center justify-content-end ml-50">
-                    <div className="tp-header-action-item d-lg-none">
-                      <button
-                        onClick={() => setIsCanvasOpen(true)}
-                        type="button"
-                        className="tp-header-action-btn tp-offcanvas-open-btn"
-                      >
-                        <Menu />
-                      </button>
-                    </div>
-                  </div>
-                </div>
+          <div className="rs-site-header__shell">
+            <div className="rs-site-header__inner">
+              <div className="rs-site-header__brand">
+                <Link href="/" aria-label="RareStonz home">
+                  <Image
+                    src={logos}
+                    alt="RareStonz"
+                    width={264}
+                    height={80}
+                    priority
+                  />
+                </Link>
+              </div>
+
+              <nav
+                className="rs-site-header__nav d-none d-lg-flex"
+                aria-label="Primary"
+              >
+                <ul className="rs-site-header__menu">
+                  {homeHeaderMenu.map((item) => (
+                    <li
+                      key={item.id}
+                      className={item.sub_menus?.length ? "has-dropdown" : ""}
+                    >
+                      <Link href={item.link}>{item.title}</Link>
+                      {item.sub_menus?.length ? (
+                        <ul className="rs-site-header__submenu">
+                          {item.sub_menus.map((subItem) => (
+                            <li key={`${item.id}-${subItem.title}`}>
+                              <Link href={subItem.link}>{subItem.title}</Link>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : null}
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+
+              <div className="rs-site-header__actions">
+                <Link
+                  href={homeHeaderCta.link}
+                  className="rs-site-header__cta d-none d-lg-inline-flex"
+                >
+                  {homeHeaderCta.label}
+                </Link>
+                <button
+                  onClick={() => setIsCanvasOpen(true)}
+                  type="button"
+                  className="rs-site-header__menu-btn d-lg-none"
+                  aria-label="Open menu"
+                >
+                  <Menu />
+                </button>
               </div>
             </div>
           </div>
@@ -85,6 +85,9 @@ const HeaderThree = () => {
         isOffCanvasOpen={isOffCanvasOpen}
         setIsCanvasOpen={setIsCanvasOpen}
         categoryType="beauty"
+        menuItems={homeHeaderMenu}
+        cta={homeHeaderCta}
+        className="rs-offcanvas"
       />
       {/* off canvas end */}
     </>
