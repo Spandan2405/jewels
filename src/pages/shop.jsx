@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import SEO from "@/components/seo";
 import Wrapper from "@/layout/wrapper";
 import HeaderTwo from "@/layout/headers/header-2";
@@ -6,40 +6,17 @@ import ShopBreadcrumb from "@/components/breadcrumb/shop-breadcrumb";
 import ShopArea from "@/components/shop/shop-area";
 import ErrorMsg from "@/components/common/error-msg";
 import Footer from "@/layout/footers/footer";
-import ShopLoader from "@/components/loader/shop/shop-loader";
 import { getProducts } from "@/lib/fetchData";
 import MobileFilter from "@/components/shop/MobileFilter";
 
-const ShopPage = ({ query }) => {
-  const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
+const ShopPage = ({ query, products, isError }) => {
   const [selectValue, setSelectValue] = useState("");
   const [currPage, setCurrPage] = useState(1);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const Rings = await getProducts();
-        setProducts(Rings);
-        // setFilteredProducts(Rings);
-      } catch (error) {
-        console.error(error);
-        setIsError(true);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchProducts();
-  }, []);
-
-  // handleChanges
   const handleChanges = () => {
     setCurrPage(1);
   };
 
-  // selectHandleFilter
   const selectHandleFilter = (e) => {
     setSelectValue(e.value);
   };
@@ -50,64 +27,44 @@ const ShopPage = ({ query }) => {
     setCurrPage,
   };
 
-  // console.log(products);
   let content = null;
 
-  if (isLoading) {
-    content = <ShopLoader loading={isLoading} />;
-  }
-  if (!isLoading && isError) {
+  if (isError) {
     content = (
       <div className="pb-80 text-center">
         <ErrorMsg msg="There was an error" />
       </div>
     );
-  }
-  if (!isLoading && !isError && products?.length === 0) {
+  } else if (!products || products.length === 0) {
     content = <ErrorMsg msg="No Products found!" />;
-  }
-  if (!isLoading && !isError && products.length > 0) {
-    // products
+  } else {
     let product_items = [...products];
-    // select short filtering
-    if (selectValue) {
-      if (selectValue === "Default Sorting") {
-        product_items = products;
-      } else if (selectValue === "New Added") {
-        product_items = products
-          .slice()
-          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-        // console.log(product_items);
-      } else {
-        product_items = products;
-      }
+
+    if (selectValue === "New Added") {
+      product_items = products
+        .slice()
+        .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
     }
 
-    // category filter
     if (query.category) {
       product_items = product_items.filter(
-        (p) => p.category.toLowerCase().split(" ").join("-") === query.category
+        (p) => p.category.toLowerCase().split(" ").join("-") === query.category,
       );
-      // console.log(product_items);
     }
-
-    // category filter
     if (query.subcategory) {
       product_items = product_items.filter(
         (p) =>
           p.productType.toLowerCase().replace("&", "").split(" ").join("-") ===
-          query.subcategory
+          query.subcategory,
       );
     }
-
-    // color filter
     if (query.color) {
       product_items = product_items.filter(
         (product) =>
-          product.goldColor?.toLowerCase().replace(/\s+/g, "-") === query.color
+          product.goldColor?.toLowerCase().replace(/\s+/g, "-") === query.color,
       );
-      // console.log(product_items);
     }
+
     content = (
       <>
         <ShopArea
@@ -135,7 +92,11 @@ export default ShopPage;
 
 export const getServerSideProps = async (context) => {
   const { query } = context;
-  return {
-    props: { query },
-  };
+  try {
+    const products = await getProducts();
+    return { props: { query, products, isError: false } };
+  } catch (error) {
+    console.error(error);
+    return { props: { query, products: [], isError: true } };
+  }
 };

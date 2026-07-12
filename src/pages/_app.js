@@ -36,7 +36,6 @@ export default function App({ Component, pageProps }) {
           });
         `}
       </Script>
-      <Script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></Script>
 
       <Component {...pageProps} />
       <Analytics />

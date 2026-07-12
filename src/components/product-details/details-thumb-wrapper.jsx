@@ -1,7 +1,17 @@
+import dynamic from "next/dynamic";
+import Image from "next/image";
 import { urlFor } from "@/lib/sanity";
 import { useState } from "react";
 import PopupVideo from "../common/popup-video";
-import ReactPlayer from "react-player";
+
+const ReactPlayer = dynamic(() => import("react-player/lazy"), {
+  ssr: false,
+});
+
+const getImageSrc = (source, options) => {
+  if (!source) return "";
+  return typeof source === "string" ? source : urlFor(source, options);
+};
 
 const DetailsThumbWrapper = ({
   imageURLs,
@@ -11,8 +21,8 @@ const DetailsThumbWrapper = ({
   imgHeight = 480,
   videoURL = false,
 }) => {
-  // console.log(imageURLs);
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+
   return (
     <>
       <div className="tp-product-details-thumb-wrapper tp-tab d-sm-flex">
@@ -23,17 +33,17 @@ const DetailsThumbWrapper = ({
                 <button
                   key={i}
                   className={`nav-link ${item.i === activeImg ? "active" : ""}`}
+                  type="button"
                   onClick={() => handleImageActive(item)}
                 >
-                  {
-                    <img
-                      src={item}
-                      alt="image"
-                      width={78}
-                      height={100}
-                      style={{ width: "100%", height: "100%" }}
-                    />
-                  }
+                  <Image
+                    src={getImageSrc(item, { width: 156, height: 200, quality: 75 })}
+                    alt="image"
+                    width={78}
+                    height={100}
+                    sizes="78px"
+                    style={{ width: "100%", height: "100%" }}
+                  />
                 </button>
               ))}
             </div>
@@ -42,12 +52,11 @@ const DetailsThumbWrapper = ({
         <div className="tab-content m-img flex-col">
           <div className="tab-pane fade show active">
             <div className="tp-product-details-nav-main-thumb p-relative">
-              {activeImg === imageURLs[1] && videoURL ? (
+              {activeImg === imageURLs?.[1] && videoURL ? (
                 <div
                   className="product-video-container"
                   style={{
                     width: imgWidth,
-                    // height: imgHeight,
                     maxWidth: "100%",
                     aspectRatio: `${imgWidth}/${imgHeight}`,
                     marginBottom: "10px",
@@ -77,10 +86,16 @@ const DetailsThumbWrapper = ({
                   />
                 </div>
               ) : (
-                <img
-                  src={urlFor(activeImg)}
+                <Image
+                  src={getImageSrc(activeImg, {
+                    width: imgWidth * 2,
+                    height: imgHeight * 2,
+                    quality: 75,
+                  })}
                   alt="product img"
                   width={imgWidth}
+                  height={imgHeight}
+                  sizes={`(max-width: 768px) 100vw, ${imgWidth}px`}
                   style={{
                     width: imgWidth,
                     maxWidth: "100%",

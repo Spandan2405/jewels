@@ -6,7 +6,6 @@ const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
 const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION;
 const useCdn = "true";
 
-// Sanity client configuration
 export const client = createClient({
   projectId: projectId,
   dataset: dataset,
@@ -15,4 +14,14 @@ export const client = createClient({
 });
 
 const builder = imageUrlBuilder(client);
-export const urlFor = (source) => builder.image(source).url();
+
+// options is optional. Passing nothing = identical to old behavior.
+export const urlFor = (source, options) => {
+  let img = builder.image(source);
+  if (options?.width) img = img.width(options.width);
+  if (options?.height) img = img.height(options.height);
+  if (options?.width || options?.height) {
+    img = img.auto("format").quality(options.quality || 75);
+  }
+  return img.url();
+};
